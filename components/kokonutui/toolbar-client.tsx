@@ -3,7 +3,13 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { Settings, Home, FileText, type LucideIcon } from "lucide-react";
+import {
+    Home,
+    FileText,
+    BriefcaseBusiness,
+    Laptop,
+    FileCode2
+} from "lucide-react";
 import {
     type ToolbarItem,
     type ToolbarProps
@@ -12,8 +18,10 @@ import { useRouter } from "next/navigation";
 
 const toolbarItems: ToolbarItem[] = [
     { id: "/", title: "Home", icon: Home },
+    { id: "experience", title: "Experience", icon: BriefcaseBusiness },
     { id: "blog", title: "Blog", icon: FileText },
-    { id: "setup", title: "Setup", icon: Settings }
+    { id: "setup", title: "Setup", icon: Laptop },
+    { id: "projects", title: "Projects", icon: FileCode2 }
 ];
 
 const buttonVariants = {
@@ -76,7 +84,6 @@ export const ToolbarClient = ({
     };
 
     const router = useRouter();
-
 
     return (
         <div className="space-y-2">

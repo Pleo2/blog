@@ -3,12 +3,19 @@ import {
     type ToolbarItem,
     type ToolbarProps
 } from "@/components/kokonutui/toolbar.type";
-import { FileText, Home, Settings } from "lucide-react";
-
+import {
+    BriefcaseBusiness,
+    FileCode2,
+    FileText,
+    Home,
+    Laptop,
+} from "lucide-react";
 const toolbarItems: ToolbarItem[] = [
-    { id: "home", title: "Home", icon: Home },
+    { id: "/", title: "Home", icon: Home },
+    { id: "experience", title: "Experience", icon: BriefcaseBusiness },
     { id: "blog", title: "Blog", icon: FileText },
-    { id: "setup", title: "Setup", icon: Settings }
+    { id: "setup", title: "Setup", icon: Laptop },
+    { id: "projects", title: "Projects", icon: FileCode2 }
 ];
 
 export const Toolbar = ({
