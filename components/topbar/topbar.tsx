@@ -14,7 +14,7 @@ export const TopBar = () => {
                 <div className={cn("relative z-10 flex")}>
                     <div
                         className={cn(
-                            "px-2 py-2 relative text-white font-semibold rounded shadow  transition-colors duration-200 flex items-center gap-2",
+                            "px-2 py-2 relative text-white font-semibold rounded shadow transition-colors duration-200 flex items-center gap-2",
                             "before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-white/5 before:rounded-lg before:transition-colors before:duration-200 before:border-white/20 before:border-1"
                         )}
                     >
@@ -23,7 +23,7 @@ export const TopBar = () => {
                             alt="CV Download"
                             height={50}
                             width={50}
-                            className="rounded-lg shadow-xl"
+                            className="rounded-lg shadow-xl opacity-100"
                         />
                         <a
                             href="/cv.pdf"
