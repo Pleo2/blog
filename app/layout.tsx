@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "../components/footer";
 import { baseUrl } from "./sitemap";
 import { TopBar } from "@/components/topbar/topbar";
+import { SocialSection } from "@/components/social/social-section";
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
@@ -50,8 +51,8 @@ export default function RootLayout({
             className={cx("", GeistSans.variable, GeistMono.variable)}
         >
             <body className="">
-                <main className="fondo-con-blur bg-blue-950 brightness-75 dark:brightness-100 grid place-content-center content-start h-screen w-screen text-white fondo-con-blur after:content-[''] after:blur-xl after:bg-[url('https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/wallpaper.webp')] after:bg-cover after:bg-center after:absolute after:w-full after:h-full ">
-                    <div className="relative z-10 flex flex-col pt-28">
+                <main className="fondo-con-blur bg-blue-950 dark:brightness-100 grid place-content-center content-start h-screen w-screen text-white fondo-con-blur after:content-[''] after:blur-xl after:bg-[url('https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/wallpaper.webp')] after:bg-cover after:bg-center after:absolute after:w-full after:h-full ">
+                    <div className="relative z-10 flex flex-col pt-[6.5rem] md:pt-36">
                         {children}
                         <TopBar />
                         {/* <Footer /> */}

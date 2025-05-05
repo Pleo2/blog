@@ -7,7 +7,7 @@ export const TopBar = () => {
         <>
             <div
                 className={cn(
-                    "absolute top-2 right-0 left-0 pt-2 px-4 flex items-center justify-start w-full drop-shadow-lg",
+                    "absolute top-2 md:top-12 right-0 left-0 pt-2 px-4 flex items-center justify-start w-full drop-shadow-lg",
                     "before:absolute before:content-[''] before:h-full before:w-screen before:backdrop-blur-sm before:opacity-100"
                 )}
             >
@@ -23,13 +23,13 @@ export const TopBar = () => {
                             alt="CV Download"
                             height={50}
                             width={50}
-                            className="rounded-lg shadow-xl opacity-100"
+                            className="rounded-lg z-20 shadow-xl opacity-100 brightness-125"
                         />
                         <a
                             href="/cv.pdf"
                             download
                             className={cn(
-                                "text-sm text-white font-semibold flex items-center justify-center bg-white/10 opacity-60 px-4 rounded-lg gap-2 h-full drop-shadow-2xl",
+                                "text-xs text-white font-semibold flex items-center justify-center bg-white/10 opacity-60 px-4 rounded-lg gap-2 h-full drop-shadow-2xl",
                                 "hover:opacity-100 transition-opacity duration-200"
                             )}
                         >
@@ -40,7 +40,7 @@ export const TopBar = () => {
                             href="/cv.pdf"
                             download
                             className={cn(
-                                "text-sm text-white font-semibold flex items-center justify-center bg-white/10 opacity-60 px-4 rounded-lg gap-2 h-full drop-shadow-2xl",
+                                "text-xs text-white font-semibold flex items-center justify-center bg-white/10 opacity-60 px-4 rounded-lg gap-2 h-full drop-shadow-2xl",
                                 "hover:opacity-100 transition-opacity duration-200"
                             )}
                         >

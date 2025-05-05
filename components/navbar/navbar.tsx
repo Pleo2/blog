@@ -8,7 +8,7 @@ export const Navbar = () => {
     return (
         <div
             className={cn(
-                "fixed bottom-10  right-0 left-0 flex items-center justify-center w-full",
+                "fixed bottom-4 right-0 left-0 flex items-center justify-center w-full",
                 "before:absolute before:content-[''] before:h-24 before:w-screen before:backdrop-blur-lg before:opacity-50"
             )}
         >

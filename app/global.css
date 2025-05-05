@@ -1,18 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-::selection {
-    /* background-color: #121241; */
-    color: #fefefe;
-}
-:root {
+@theme {
     --color-blue-base: "#0075FF";
     --color-dark-blue: "#121241";
     --color-dark-gray: "#1A1F37";
     --color-green: "#05CD99";
     --color-red: "#DC395F";
     --color-mustard: "#ECB22E";
+}
+
+:root {
     --sh-class: #2d5e9d;
     --sh-identifier: #354150;
     --sh-sign: #8996a3;
