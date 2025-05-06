@@ -19,7 +19,7 @@ export const WakatimeHours = () => {
                     <span>
                         <Clock className="w-4" />
                     </span>
-                    Hours of Coding
+                    Hours of Code
                 </p>
             </div>
         </GlassCard>
