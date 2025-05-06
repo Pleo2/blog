@@ -1,8 +1,8 @@
-import { Star } from "lucide-react";
-import { GlassCard } from "../cards/glass-card";
+import { Clock } from "feather-icons-react";
+import { GlassCard } from "../../cards/glass-card";
 import { cn } from "@/lib/utils";
 
-export const ExpertiseCard = () => {
+export const WakatimeHours = () => {
     return (
         <GlassCard
             className={cn(
@@ -12,13 +12,14 @@ export const ExpertiseCard = () => {
         >
             <div className="flex flex-col justify-center items-center gap-2 hover:scale-105 transition-scale duration-400">
                 <h2 className="text-6xl text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center">
-                    03 <span className="text-white/80 text-5xl">+</span>
+                    {2000}
+                    <span className="text-white/80 text-5xl">+</span>
                 </h2>
-                <p className="gap-1 flex text-xs items-center border border-white/20 p-2 rounded-lg text-white/80 w-36 justify-center">
+                <p className="gap-1 text-xs flex items-center border border-white/20 p-2 rounded-lg text-white/80 w-36 justify-center">
                     <span>
-                        <Star className="w-4" />
+                        <Clock className="w-4" />
                     </span>
-                    Years of Expertise
+                    Hours of Coding
                 </p>
             </div>
         </GlassCard>
