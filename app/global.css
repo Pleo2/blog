@@ -282,3 +282,40 @@ table {
 .title {
     text-wrap: balance;
 }
+
+@layer utilities {
+    /* Clase para slide-left (si ya no la tienes en config) */
+    .animate-slide-left-infinite {
+        animation: slide-left-infinite 40s linear infinite; /* Ajusta la duración */
+    }
+
+    /* NUEVA: Clase para slide-right */
+    .animate-slide-right-infinite {
+        animation: slide-right-infinite 40s linear infinite; /* Usa la misma duración o ajústala */
+    }
+
+    /* Tu utilidad de pausa, que ya deberías tener */
+    .animation-pause {
+        animation-play-state: paused;
+    }
+}
+
+/* Keyframes para slide-left (si ya no los tienes en config) */
+@keyframes slide-left-infinite {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* NUEVO: Keyframes para slide-right */
+@keyframes slide-right-infinite {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
