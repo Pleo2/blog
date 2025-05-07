@@ -24,7 +24,7 @@ export const ContainerBlogPost = () => {
                         </span>
                     </section>
 
-                    <h3 className="w-full line-clamp-2 text-xl font-medium text-white/90">
+                    <h3 className="w-full line-clamp-1 text-xl font-medium text-white/90">
                         Cual tiene mejor rendimiento en una aplicacion web,
                         zustand o la apiNativa de Context de react, y cuales son
                         sus ventajas y desventajas tecnicas y practicas para un
@@ -42,7 +42,7 @@ export const ContainerBlogPost = () => {
                         </Badge>
                     </div>
                 </CardHeader>
-                <CardContent className="text-sm text-white/70 line-clamp-5 w-[97%]">
+                <CardContent className="text-sm text-white/70 line-clamp-2 w-[97%]">
                     Tanto Zustand como la API de Context de React son
                     herramientas populares para la gestión de estado en
                     aplicaciones web modernas, pero presentan diferencias

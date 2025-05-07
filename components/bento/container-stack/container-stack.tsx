@@ -31,9 +31,6 @@ export const ContainerStack = () => {
                         {/* DevOps and Deployment */}
                         <p className="text-white/80 text-sm">Devops and Deployment</p>
                         <SlideLeft />
-                        {/* AI Technologies Integration */}
-                        <p className="text-white/80 text-sm">Ai Integration</p>
-                        <SlideRight />
                     </div>
                 </CardContent>
             </GlassCard>
