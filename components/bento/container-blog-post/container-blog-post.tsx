@@ -42,7 +42,7 @@ export const ContainerBlogPost = () => {
                         </Badge>
                     </div>
                 </CardHeader>
-                <CardContent className="text-sm text-white/70 line-clamp-2 w-[97%]">
+                <CardContent className="text-sm text-white/70 line-clamp-2 w-[97%] 2xl:line-clamp-5">
                     Tanto Zustand como la API de Context de React son
                     herramientas populares para la gestión de estado en
                     aplicaciones web modernas, pero presentan diferencias
