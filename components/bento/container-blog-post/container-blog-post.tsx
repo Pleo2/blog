@@ -7,26 +7,26 @@ import { StarsIcon } from "lucide-react";
 export const ContainerBlogPost = () => {
     return (
         <div className="mb-3 sm:mb-0 col-span-full sm:col-start-4 sm:row-start-3 sm:row-span-4 sm:col-span-4 md:col-start-3 md:row-start-6 md:row-span-2 md:col-span-3 lg:col-start-6 lg:row-start-4 lg:row-span-2 lg:col-span-2 xl:col-span-2 xl:row-span-3 xl:col-start-6 xl:row-start-5">
-            <GlassCard className="justify-center items-start cursor-pointer h-full transition-transform hover:scale-[1.01] duration-300 overflow-hidden">
-                <CardHeader className="flex flex-col items-start p-3 sm:p-4 md:p-5 w-full">
-                    <div className="flex flex-wrap gap-1 sm:gap-2 justify-start items-center text-white w-full mb-2 sm:mb-3">
+            <GlassCard className="justify-center items-start cursor-pointer h-full transition-opacity hover:opacity-80 duration-300 overflow-hidden">
+                <CardHeader className="flex flex-col items-start w-full">
+                    <div className="flex flex-wrap gap-1 sm:gap-2 justify-start items-center text-white w-full">
                         <StarsIcon className="w-4 h-4 flex-shrink-0" />
                         <CardTitle className="text-base sm:text-lg whitespace-nowrap overflow-hidden text-ellipsis">
                             Personal Blog
                         </CardTitle>
-                        <Badge className="bg-red-500/20 border-red-500/50 rounded-full hover:bg-rose-900 text-white px-2 py-0.5 text-[10px] sm:text-xs font-medium cursor-pointer transition-all duration-300 flex-shrink-0">
+                        {/* <Badge className="bg-red-500/20 border-red-500/50 rounded-full hover:bg-rose-900 text-white px-2 py-0.5 text-[10px] sm:text-xs font-medium cursor-pointer transition-all duration-300 flex-shrink-0">
                             Last Post
-                        </Badge>
+                        </Badge> */}
                     </div>
 
-                    <section className="flex gap-1 items-center mt-2 w-full">
+                    <section className="flex gap-1 items-center w-full">
                         <Calendar className="w-3 h-3 text-white/70 flex-shrink-0" />
                         <span className="text-xs text-white/70 whitespace-nowrap overflow-hidden text-ellipsis">
                             May 6, 2025
                         </span>
                     </section>
 
-                    <h3 className="w-full line-clamp-2 text-sm sm:text-base md:text-lg font-medium text-white/90 mt-2 overflow-hidden text-ellipsis">
+                    <h3 className="w-full line-clamp-1 text-sm sm:text-base md:text-lg font-medium text-white/90 mt-2 overflow-hidden text-ellipsis">
                         Cual tiene mejor rendimiento en una aplicacion web,
                         zustand o la apiNativa de Context de react, y cuales son
                         sus ventajas y desventajas tecnicas y practicas para un
@@ -44,7 +44,7 @@ export const ContainerBlogPost = () => {
                         </Badge>
                     </div>
                 </CardHeader>
-                <CardContent className="text-[10px] sm:text-xs md:text-sm text-white/70 line-clamp-3 w-full p-3 sm:p-4 md:p-5 pt-0 sm:pt-0 md:pt-0 overflow-hidden">
+                <CardContent className="text-[10px] sm:text-xs md:text-sm text-white/70 line-clamp-3 w-full overflow-hidden">
                     Tanto Zustand como la API de Context de React son
                     herramientas populares para la gestión de estado en
                     aplicaciones web modernas, pero presentan diferencias

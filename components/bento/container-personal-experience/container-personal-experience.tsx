@@ -15,7 +15,7 @@ export const ContainerPersonalExperience = () => {
         >
             <GlassCard className="before:content-[''] before:w-full before:h-24 before:blur-2xl pb-0 h-full transition-transform hover:scale-[1.01] duration-300">
                 <CardHeader className="w-full flex-col items-start z-10">
-                    <div className="relative flex gap-2 justify-center items-center text-white">
+                    <div className="relative flex gap-1 justify-center items-center text-white">
                         <Briefcase className="w-4" />
                         <CardTitle className="">Professional Experience</CardTitle>
                     </div>

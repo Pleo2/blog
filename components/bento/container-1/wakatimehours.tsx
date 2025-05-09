@@ -11,7 +11,7 @@ export const WakatimeHours = () => {
             )}
         >
             <div className="flex flex-col justify-center items-center gap-2 hover:scale-105 transition-scale duration-400">
-                <h2 className="text-5xl sm:text-5xl md:text-6xl text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center">
+                <h2 className="text-5xl sm:text-5xl text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center">
                     {2000}
                     <span className="text-white/80 text-4xl sm:text-4xl md:text-5xl">
                         +
