@@ -7,8 +7,9 @@ export const TopBar = () => {
         <>
             <div
                 className={cn(
-                    "absolute top-2 md:top-12 right-0 left-0 pt-2 px-4 flex items-center justify-start w-full drop-shadow-lg",
-                    "before:absolute before:content-[''] before:h-full before:w-screen before:backdrop-blur-sm before:opacity-100"
+                    "absolute top-2 left-0 pt-2 px-4 flex justify-start items-center w-full drop-shadow-lg",
+                    "md:top-20 md:justify-end"
+                    // "before:absolute before:content-[''] before:h-full before:w-screen before:backdrop-blur-sm before:opacity-100"
                 )}
             >
                 <div className={cn("relative z-10 flex")}>

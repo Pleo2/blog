@@ -9,27 +9,27 @@ export const ContainerPersonalExperience = () => {
     return (
         <div
             className={cn(
-                "col-start-3 row-start-1 col-span-3 row-span-2 xl:col-span-2 xl:row-span-4 xl:col-start-4 xl:row-start-1",
-                "relative before:absolute before:rounded-lg before:bottom-0 before:w-full before:h-16 before:bg-gradient-to-t before:from-[#1349AB] before:z-20 before:to-tranparent"
+                "mb-3 sm:mb-0 col-span-full sm:col-start-1 sm:row-start-2 sm:col-span-2 sm:row-span-1 md:col-start-3 md:row-start-1 md:col-span-3 md:row-span-2 lg:col-start-3 lg:row-start-1 lg:col-span-3 lg:row-span-2 xl:col-span-2 xl:row-span-4 xl:col-start-4 xl:row-start-1",
+                "relative before:absolute before:rounded-lg before:bottom-0 before:w-full before:h-16 before:bg-gradient-to-t before:from-[#1349AB] before:z-20 before:to-transparent"
             )}
         >
-            <GlassCard className=" before:content-[''] before:w-full before:h-24 before:blur-2xl pb-0">
-                <CardHeader className=" w-full flex-col items-start z-10">
+            <GlassCard className="before:content-[''] before:w-full before:h-24 before:blur-2xl pb-0 h-full transition-transform hover:scale-[1.01] duration-300">
+                <CardHeader className="w-full flex-col items-start z-10">
                     <div className="relative flex gap-2 justify-center items-center text-white">
                         <Briefcase className="w-4" />
-                        <CardTitle className="">Personal Experience</CardTitle>
+                        <CardTitle className="">Professional Experience</CardTitle>
                     </div>
                 </CardHeader>
-                <CardContent className="overflow-scroll rounded-2xl flex-col">
+                <CardContent className="overflow-auto max-h-[calc(100%-4rem)] rounded-2xl flex-col scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-transparent">
                     <PersonalExperienceCard
                         imageSrc={
                             "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/jobs/streetmarketing.jpeg"
                         }
                         imageAlt={"streetmarketing logo"}
                         title={"Street Marketing"}
-                        date={"march-july, 2024"}
+                        date={"March-July, 2024"}
                         selfAlign="self-end"
-                        tags={["TypeScript", "NextJs", "NestJS", "Ai"]}
+                        tags={["TypeScript", "NextJs", "NestJS", "AI"]}
                         rol={{
                             title: "Full-Stack Developer (React/NestJS)",
                             subtilte:
@@ -46,9 +46,9 @@ export const ContainerPersonalExperience = () => {
                         }
                         imageAlt={"The Vincent"}
                         title={"The Vincent"}
-                        date={"march-july, 2024"}
+                        date={"March-July, 2024"}
                         selfAlign="self-end"
-                        tags={["TypeScript", "NextJs", "NestJS", "Ai"]}
+                        tags={["TypeScript", "NextJs", "NestJS", "AI"]}
                         rol={{
                             title: "Creative Frontend Engineer (chart.js)",
                             subtilte:

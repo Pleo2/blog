@@ -12,7 +12,7 @@ export const Bento = () => {
         <div
             className={cn(
                 "flex-col flex gap-2 relative",
-                "sm:grid sm:grid-cols-7 sm:grid-rows-7 sm:h-[65vh] xl:h-[55vh] 2xl:h-full"
+                "lg:grid lg:grid-cols-7 lg:grid-rows-7 lg:h-[65vh] xl:h-[55vh] 2xl:h-full"
             )}
         >
             <Container_1 />

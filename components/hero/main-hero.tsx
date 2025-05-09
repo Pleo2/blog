@@ -6,11 +6,11 @@ export const MainHero = () => {
         <>
             <div className="flex w-max items-center h-max gap-4 justify-start">
                 <h1 className="leading-normal font-medium font-stretch-expanded text-4xl w-full tracking-tighter">
-                    Pleo2
+                   I'm Jose Moreno
                 </h1>
             </div>
 
-            <div className="flex gap-2 items-center justify-start h-max mt-4">
+            <div className="flex gap-2 items-center justify-start h-max">
             <SocialSection />
             {/* <Wakatime /> */}
             </div>
