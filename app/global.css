@@ -286,12 +286,17 @@ table {
 @layer utilities {
     /* Clase para slide-left (si ya no la tienes en config) */
     .animate-slide-left-infinite {
-        animation: slide-left-infinite 40s linear infinite; /* Ajusta la duración */
+        animation: slide-left-infinite 100s linear infinite; /* Ajusta la duración */
     }
 
     /* NUEVA: Clase para slide-right */
     .animate-slide-right-infinite {
         animation: slide-right-infinite 40s linear infinite; /* Usa la misma duración o ajústala */
+    }
+
+    .animate-slide-left-infinite-short {
+        animation: slide-left-infinite 40s linear infinite; /* Ajusta la duración */
+        
     }
 
     /* Tu utilidad de pausa, que ya deberías tener */
