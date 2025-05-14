@@ -75,13 +75,13 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                     ))}
                 </div>
 
-                <h3 className="text-sm text-white/80 mt-2  2xl:text-lg">
+                <h3 className="text-sm text-white/80 mt-2  md:text-lg">
                     {rol.title}
                 </h3>
-                <h4 className="text-sm text-white/60 2xl:text-md">
+                <h4 className="text-sm text-white/60 md:text-md">
                     {rol.subtilte}
                 </h4>
-                <p className="text-xs mt-2 text-white/50 line-clamp-3">
+                <p className="text-xs mt-2 text-white/50 line-clamp-2">
                     {rol.description}
                 </p>
             </CardContent>

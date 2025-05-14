@@ -6,9 +6,9 @@ import { SlideRight } from "./slide-right";
 
 export const ContainerStack = () => {
     return (
-        <div className="col-start-3 row-start-6 col-span-5 xl:col-span-2 xl:row-span-4 xl:col-start-6 xl:row-start-1">
+        <div className="col-start-3 row-start-6 col-span-5 lg:col-span-2 lg:row-span-4 lg:col-start-6 lg:row-start-1">
             <GlassCard>
-                <CardHeader className="flex flex-col items-start">
+                <CardHeader className="flex flex-col items-start lg:hidden xl:flex">
                     <div className="flex gap-2 justify-center items-center text-white">
                         <PocketKnife className="w-4" />
                         <CardTitle className="">My Stack</CardTitle>
@@ -23,13 +23,13 @@ export const ContainerStack = () => {
                 <CardContent className="">
                     <div className="flex flex-col gap-3">
                         {/* full stack development */}
-                        <p className="text-white/80 text-sm">Full Stack Development</p>
+                        <p className="text-white/80 text-sm lg:hidden xl:flex">Full Stack Development</p>
                         <SlideLeft />
                         {/* Database and State Management */}
-                        <p className="text-white/80 text-sm">Database and State Management</p>
+                        <p className="text-white/80 text-sm lg:hidden xl:flex">Database and State Management</p>
                         <SlideRight />
                         {/* DevOps and Deployment */}
-                        <p className="text-white/80 text-sm">Devops and Deployment</p>
+                        <p className="text-white/80 text-sm lg:hidden xl:flex">Devops and Deployment</p>
                         <SlideLeft />
                     </div>
                 </CardContent>

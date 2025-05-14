@@ -11,7 +11,7 @@ export const Bento = () => {
     return (
         <div
             className={cn(
-                "flex-col flex gap-2 relative",
+                "flex flex-col gap-2 overflow-scroll",
                 "lg:grid lg:grid-cols-7 lg:grid-rows-7 lg:h-full"
             )}
         >
@@ -19,7 +19,7 @@ export const Bento = () => {
             {/* profesional experience */}
             <ContainerPersonalExperience />
             {/* ?? */}
-            <div className="col-start-3 row-start-3 row-span-3 col-span-3 xl:col-span-3 xl:row-span-2 xl:col-start-1 xl:row-start-3">
+            <div className="col-start-3 row-start-3 row-span-3 col-span-3 lg:col-span-3 lg:row-span-2 lg:col-start-1 lg:row-start-3">
                 <GlassCard>
                     <CardHeader className="flex flex-col items-start">
                         <div className="flex gap-2 justify-center items-center text-white">
@@ -34,7 +34,7 @@ export const Bento = () => {
             </div>
 
             {/* My Setup */}
-            <div className="hidden xl:flex xl:col-start-4 xl:col-span-2 xl:row-span-3">
+            <div className="hidden lg:flex lg:col-start-4 lg:col-span-2 lg:row-span-3">
                 <GlassCard>
                     <CardHeader className="flex flex-col items-start">
                         <div className="flex gap-2 justify-center items-center text-white">
@@ -50,7 +50,7 @@ export const Bento = () => {
             <ContainerStack />
 
             {/* my projects galery */}
-            <div className="col-start-6 row-start-1 row-span-3 col-span-2 xl:col-span-3 xl:row-span-3 xl:row-start-5">
+            <div className="col-start-6 row-start-1 row-span-3 col-span-2 lg:col-span-3 lg:row-span-3 lg:row-start-5">
                 <GlassCard>
                     <CardHeader className="flex flex-col items-start">
                         <div className="flex gap-2 justify-center items-center text-white">

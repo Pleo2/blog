@@ -1,12 +1,21 @@
 import { GlassCard } from "@/components/cards/glass-card";
 import { Badge } from "@/components/ui/badge";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { Calendar, FileText, Star } from "feather-icons-react";
 import { StarsIcon } from "lucide-react";
 
 export const ContainerBlogPost = () => {
     return (
-        <div className="mb-3 sm:mb-0 col-span-full sm:col-start-4 sm:row-start-3 sm:row-span-4 sm:col-span-4 md:col-start-3 md:row-start-6 md:row-span-2 md:col-span-3 lg:col-start-6 lg:row-start-4 lg:row-span-2 lg:col-span-2 xl:col-span-2 xl:row-span-3 xl:col-start-6 xl:row-start-5">
+        <div
+            className={cn(
+                "mb-3 col-span-full",
+                "sm:mb-0 sm:col-start-4 sm:row-start-3 sm:row-span-4 sm:col-span-4",
+                "md:col-start-3 md:row-start-6 md:row-span-2 md:col-span-3",
+                // "lg:col-start-6 lg:row-start-4 lg:row-span-2 lg:col-span-2",
+                "lg:col-span-2 lg:row-span-3 lg:col-start-6 lg:row-start-5"
+            )}
+        >
             <GlassCard className="justify-center items-start cursor-pointer h-full transition-opacity hover:opacity-80 duration-300 overflow-hidden">
                 <CardHeader className="flex flex-col items-start w-full">
                     <div className="flex flex-wrap gap-1 sm:gap-2 justify-start items-center text-white w-full">

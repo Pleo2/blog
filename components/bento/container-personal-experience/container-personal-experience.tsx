@@ -9,7 +9,10 @@ export const ContainerPersonalExperience = () => {
     return (
         <div
             className={cn(
-                "mb-3 sm:mb-0 col-span-full sm:col-start-1 sm:row-start-2 sm:col-span-2 sm:row-span-1 md:col-start-3 md:row-start-1 md:col-span-3 md:row-span-2 lg:col-start-3 lg:row-start-1 lg:col-span-3 lg:row-span-2 xl:col-span-2 xl:row-span-4 xl:col-start-4 xl:row-start-1",
+                "mb-3 sm:mb-0 col-span-full sm:col-start-1 sm:row-start-2 sm:col-span-2 sm:row-span-1",
+                "md:col-start-3 md:row-start-1 md:col-span-3 md:row-span-2",
+                // "lg:col-start-3 lg:row-start-1 lg:col-span-3 lg:row-span-2",
+                "lg:col-span-2 lg:row-span-4 lg:col-start-4 lg:row-start-1",
                 "relative before:absolute before:rounded-lg before:bottom-0 before:w-full before:h-16 before:bg-gradient-to-t before:from-[#1349AB] before:z-20 before:to-transparent"
             )}
         >
@@ -17,7 +20,9 @@ export const ContainerPersonalExperience = () => {
                 <CardHeader className="w-full flex-col items-start z-10">
                     <div className="relative flex gap-1 justify-center items-center text-white">
                         <Briefcase className="w-4" />
-                        <CardTitle className="">Professional Experience</CardTitle>
+                        <CardTitle className="">
+                            Professional Experience
+                        </CardTitle>
                     </div>
                 </CardHeader>
                 <CardContent className="overflow-auto max-h-[calc(100%-4rem)] rounded-2xl flex-col scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-transparent">
