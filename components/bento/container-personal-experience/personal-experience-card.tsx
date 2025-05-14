@@ -35,11 +35,11 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
         <GlassCard
             className={cn(
                 selfAlign,
-                "overflow-hidden h-max gap-2 w-full 2xl:w-full ",
+                "overflow-hidden h-max gap-2 w-full lg:py-4 lg:gap-1 2xl:w-full",
                 className
             )}
         >
-            <CardHeader className="flex flex-col items-start">
+            <CardHeader className="flex flex-col items-start lg:px-4">
                 <div className="flex gap-3 justify-center items-center text-white">
                     <Image
                         src={imageSrc}
@@ -47,13 +47,13 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                         height={44}
                         width={44}
                         loading="eager"
-                        className="rounded-lg"
+                        className="rounded-lg lg:w-9 lg:h-9"
                     />
                     <div className="flex flex-col justify-start items-start">
-                        <CardTitle className="text-xl leading-5 font-black text-white/80">
+                        <CardTitle className="text-xl leading-5 font-semibold text-white/80 lg:text-sm lg:font-semibold">
                             {title}
                         </CardTitle>
-                        <section className="flex gap-1 items-center ">
+                        <section className="flex gap-1 items-center lg:h-3 ">
                             <Calendar className="w-3 text-white/70" />
                             <span className="text-xs text-white/70">
                                 {date}
@@ -63,7 +63,7 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                 </div>
             </CardHeader>
 
-            <CardContent className="">
+            <CardContent className="lg:px-4 lg:mt-1">
                 <div className="flex gap-1">
                     {tags.map((item, index) => (
                         <Badge
@@ -75,13 +75,13 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                     ))}
                 </div>
 
-                <h3 className="text-sm text-white/80 mt-2  md:text-lg">
+                <h3 className="text-sm text-white/80 mt-2  md:text-lg lg:text-sm">
                     {rol.title}
                 </h3>
-                <h4 className="text-sm text-white/60 md:text-md">
+                <h4 className="text-sm text-white/60 md:text-md lg:text-xs">
                     {rol.subtilte}
                 </h4>
-                <p className="text-xs mt-2 text-white/50 line-clamp-2">
+                <p className="text-xs mt-2 text-white/50 line-clamp-2 2xl:line-clamp-3">
                     {rol.description}
                 </p>
             </CardContent>

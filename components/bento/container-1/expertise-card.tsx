@@ -29,7 +29,7 @@ export const ExpertiseCard = () => {
                     <span>
                         <Star className="w-3 sm:w-4" />
                     </span>
-                    Years of Expertise
+                    Yrs. Experience
                 </p>
             </div>
         </GlassCard>

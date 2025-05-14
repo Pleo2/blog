@@ -16,7 +16,7 @@ export const Container_1 = () => {
             <div
                 className={cn(
                     "flex flex-col gap-2 sm:gap-3 md:gap-2 w-full h-full overflow-hidden",
-                    "sm:flex-col sm:w-full",
+                    "sm:flex-row",
                     "md:flex-row",
                     "xl:flex-row"
                 )}
