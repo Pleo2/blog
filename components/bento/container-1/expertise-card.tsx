@@ -1,16 +1,17 @@
 import { Star } from "lucide-react";
 import { GlassCard } from "../../cards/glass-card";
 import { cn } from "@/lib/utils";
+import { Meteors } from "@/components/magicui/meteors";
 
 export const ExpertiseCard = () => {
     return (
         <GlassCard
             className={cn(
-                "flex justify-center items-center flex-col gap-1 cursor-pointer h-full w-full overflow-hidden",
+                "relative flex justify-center items-center flex-col gap-1 cursor-pointer h-full w-full overflow-hidden",
                 "sm:flex-1 md:flex-1 lg:flex-1 xl:flex-1"
             )}
         >
-            
+            <Meteors number={30}/>
             <div className="flex flex-col justify-center items-center gap-2 hover:scale-105 transition-scale duration-400">
                 <h2 className="text-5xl sm:text-5xl lg:text-4xl xl:text-5xl text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center">
                     03{" "}

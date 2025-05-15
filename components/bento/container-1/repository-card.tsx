@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { GlassCard } from "../../cards/glass-card";
 import { Github } from "feather-icons-react";
+import { Meteors } from "@/components/magicui/meteors";
 
 export const RepositorioCard = ({
     numberRepositories
@@ -10,10 +11,12 @@ export const RepositorioCard = ({
     return (
         <GlassCard
             className={cn(
-                "flex justify-center items-center flex-col gap-1 cursor-pointer h-full w-full overflow-hidden",
+                "relative flex justify-center items-center flex-col gap-1 cursor-pointer h-full w-full overflow-hidden",
                 "sm:flex-1 md:flex-1 lg:flex-1 xl:flex-1"
             )}
         >
+            <Meteors number={20} />
+
             <div className="flex flex-col justify-center items-center gap-2 hover:scale-105 transition-scale duration-400">
                 <h2
                     className={cn(
