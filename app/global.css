@@ -296,7 +296,7 @@ table {
 
     .animate-slide-left-infinite-short {
         animation: slide-left-infinite 40s linear infinite; /* Ajusta la duración */
-        
+
     }
 
     /* Tu utilidad de pausa, que ya deberías tener */
@@ -324,3 +324,29 @@ table {
         transform: translateX(0);
     }
 }
+
+@keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap, 1rem)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap, 1rem)));
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration, 40s) linear infinite;
+  }
+
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration, 40s) linear infinite;
+  }
