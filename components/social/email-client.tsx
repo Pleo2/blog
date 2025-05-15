@@ -22,10 +22,10 @@ export const EmailClient = () => {
             className="group transition-all duration-500 hover:scale-110"
         >
             <span className="block group-hover:hidden">
-                <Mail className="w-7 stroke-1" />
+                <Mail className="w-9 h-9 stroke-1" />
             </span>
-            <span className="hidden bg-white/10 w-7 hover:flex items-center justify-center rounded-lg group-hover:block">
-                <Link className="w-4 stroke-1" />
+            <span className="hidden bg-white/10 w-9  hover:flex items-center justify-center rounded-lg group-hover:block">
+                <Link className="w-9 h-9 p-1 stroke-1" />
                 {showCopy ? (
                     <span className="bg-white/20 rounded-full p-1 px-2 absolute text-xs translate-y-8">
                         copy

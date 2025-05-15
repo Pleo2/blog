@@ -20,13 +20,13 @@ export const Aboutme = () => {
                         </div>
                     </CardHeader>
                     <CardContent className="">
-                        <p className="lg:text-sm xl:text-sm 2xl:text-base">
-                            Hey there!🖖 I'm 23, and I share my life with two
+                        <p className="lg:text-sm xl:text-sm 2xl:text-sm">
+                            <strong>Hey there!</strong>🖖 I'm 23, and I share my life with two
                             furry overlords a
                             <strong> chihuahua 🐕 and a poodle 🐩</strong> . My
                             childhood obsession with computers 🧑🏻‍💻 was a good
                             start, but let's be real, the main reason I became a
-                            developer 💼 ? These two gotta eat! 🍖 Pretty sure my
+                            developer 💼 ? These two gotta eat! Pretty sure my
                             coding skills are now directly linked to the
                             kibble 🦴 supply chain.
                         </p>

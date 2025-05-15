@@ -10,18 +10,18 @@ export const MainHero = () => {
                 </h1>
             </div>
 
-            <div className="flex gap-2 items-center justify-start h-max">
+            <div className="flex mt-4 items-center justify-start h-max">
             <SocialSection />
             {/* <Wakatime /> */}
             </div>
 
 
-            <h2 className="text-md opacity-70">
+            {/* <h2 className="text-md opacity-70">
                 {`Hi there 🖖, I'm frontend developer `}
             </h2>
             <h3 className=" text-md opacity-70">
                 specializing in react and ai.
-            </h3>
+            </h3> */}
         </>
     );
 };
