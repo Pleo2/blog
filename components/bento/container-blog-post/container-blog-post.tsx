@@ -1,4 +1,5 @@
 import { GlassCard } from "@/components/cards/glass-card";
+import { BorderBeam } from "@/components/magicui/border-beam";
 import { Badge } from "@/components/ui/badge";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -16,17 +17,17 @@ export const ContainerBlogPost = () => {
                 "lg:col-span-2 lg:row-span-3 lg:col-start-6 lg:row-start-5 lg:justify-center"
             )}
         >
-            <GlassCard className={cn(
-                    "before:content-[''] before:w-full before:h-24 before:blur-2xl pb-4 h-full transition-transform hover:scale-[1.01] duration-300",
+            <GlassCard
+                className={cn(
+                    "relative before:content-[''] before:w-full before:h-24 before:blur-2xl pb-4 h-full transition-transform hover:scale-[1.01] duration-300",
                     "lg:p-4 lg:m-0 lg:justify-center",
                     "xl:p-6 gap-2"
-                )}>
+                )}
+            >
                 <CardHeader className="w-full flex-col items-start z-10 lg:gap-0 lg:px-0">
                     <div className="relative flex gap-1 justify-center items-center text-white">
                         <StarsIcon className="w-4 " />
-                        <CardTitle className="">
-                            Personal Blog
-                        </CardTitle>
+                        <CardTitle className="">Personal Blog</CardTitle>
                         {/* <Badge className="bg-red-500/20 border-red-500/50 rounded-full hover:bg-rose-900 text-white px-2 py-0.5 text-[10px] sm:text-xs font-medium cursor-pointer transition-all duration-300 flex-shrink-0">
                             Last Post
                         </Badge> */}
@@ -66,6 +67,7 @@ export const ContainerBlogPost = () => {
                     detallada para equipos de desarrollo que necesitan elegir
                     entre estas tecnologías.
                 </CardContent>
+                <BorderBeam duration={8} size={100} />
             </GlassCard>
         </div>
     );

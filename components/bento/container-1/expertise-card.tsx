@@ -10,6 +10,7 @@ export const ExpertiseCard = () => {
                 "sm:flex-1 md:flex-1 lg:flex-1 xl:flex-1"
             )}
         >
+            
             <div className="flex flex-col justify-center items-center gap-2 hover:scale-105 transition-scale duration-400">
                 <h2 className="text-5xl sm:text-5xl lg:text-4xl xl:text-5xl text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center">
                     03{" "}

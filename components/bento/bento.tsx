@@ -7,6 +7,7 @@ import { CardContent, CardHeader, CardTitle } from "../ui/card";
 import { ContainerPersonalExperience } from "./container-personal-experience/container-personal-experience";
 import { ContainerStack } from "./container-stack/container-stack";
 import { Aboutme } from "./aboutme/aboutme";
+import { BorderBeam } from "../magicui/border-beam";
 
 export const Bento = () => {
     return (
@@ -36,7 +37,7 @@ export const Bento = () => {
 
             {/* My Setup */}
             <div className="hidden lg:flex lg:col-start-4 lg:col-span-2 lg:row-span-3">
-                <GlassCard>
+                <GlassCard className="">
                     <CardHeader className="flex flex-col items-start">
                         <div className="flex gap-2 justify-center items-center text-white">
                             <Briefcase className="w-4" />
