@@ -69,7 +69,7 @@ const features = [
 ];
 export const ProjectsGalery = () => {
     return (
-        <div className="col-start-6 row-start-1 row-span-3 col-span-2 lg:col-span-3 lg:row-span-3 lg:row-start-5">
+        <div className="col-start-3 row-start-3 row-span-3 col-span-3 lg:col-span-3 lg:row-span-3 lg:col-start-1 lg:row-start-3">
             <GlassCard className="py-0">
                 <CardContent className="h-full p-0">
                     {features.map((feature, idx) => (

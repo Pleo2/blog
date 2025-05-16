@@ -12,6 +12,7 @@ import { BentoCard } from "../magicui/bento-grid";
 import { Marquee } from "../magicui/marquee";
 import { ProjectsGalery } from "./projects-galery/projects-galery";
 import { Setup } from "./setup/setup";
+import { CallToAction } from "./call-to-action/call-to-action";
 
 export const Bento = () => {
     return (
@@ -24,23 +25,11 @@ export const Bento = () => {
             <Container_1 />
             {/* profesional experience */}
             <ContainerPersonalExperience />
-            {/* ?? */}
-            <div className="col-start-3 row-start-3 row-span-3 col-span-3 lg:col-span-3 lg:row-span-2 lg:col-start-1 lg:row-start-3">
-                <GlassCard>
-                    <CardHeader className="flex flex-col items-start">
-                        <div className="flex gap-2 justify-center items-center text-white">
-                            <Briefcase className="w-4" />
-                            <CardTitle className="">
-                                que puede ser esta
-                            </CardTitle>
-                        </div>
-                    </CardHeader>
-                    <CardContent className=""></CardContent>
-                </GlassCard>
-            </div>
+            {/* call To Action*/}
+            <CallToAction />
 
             {/* My Setup */}
-            <Setup/>
+            <Setup />
 
             {/* my tecnological stack */}
             <ContainerStack />

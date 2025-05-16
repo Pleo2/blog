@@ -7,7 +7,7 @@ import { SlideAll } from "./slide-all";
 
 export const ContainerStack = () => {
     return (
-        <div className="col-start-3 row-start-6 col-span-5 lg:col-span-2 lg:row-span-2 lg:col-start-6 lg:row-start-1 ">
+        <div className="col-start-6 row-start-4 col-span-2 row-span-2 overflow-y-hidden rounded-2xl relative ">
             <GlassCard className="flex flex-col gap-2 justify-center">
                 <CardHeader className="flex flex-col items-start lg:px-4 xl:px-6 ">
                     {/* <div className="flex gap-2 justify-center items-center text-white">

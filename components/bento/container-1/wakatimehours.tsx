@@ -2,6 +2,7 @@ import { Clock } from "feather-icons-react";
 import { GlassCard } from "../../cards/glass-card";
 import { cn } from "@/lib/utils";
 import { Meteors } from "@/components/magicui/meteors";
+import { NumberTicker } from "@/components/magicui/number-ticker";
 
 export const WakatimeHours = () => {
     return (
@@ -14,19 +15,20 @@ export const WakatimeHours = () => {
             <Meteors number={40} />
 
             <div className="flex flex-col justify-center items-center gap-2 hover:scale-105 transition-scale duration-400">
-                <h2
-                    className={cn(
-                        "text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center",
-                        "text-5xl",
-                        "sm:text-5xl",
-                        "lg:text-4xl",
-                        "xl:text-5xl"
-                    )}
-                >
-                    {2000}
+                <div className="flex gap-2 items-center h-max">
+                    <NumberTicker
+                        value={2000}
+                        className={cn(
+                            "text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center",
+                            "text-5xl",
+                            "sm:text-5xl",
+                            "lg:text-4xl",
+                            "xl:text-5xl"
+                        )}
+                    />
                     <span
                         className={cn(
-                            "text-white/80",
+                            "text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text",
                             "text-4xl",
                             "sm:text-4xl",
                             "md:text-5xl",
@@ -36,7 +38,7 @@ export const WakatimeHours = () => {
                     >
                         +
                     </span>
-                </h2>
+                </div>
                 <p
                     className={cn(
                         "gap-1 flex items-center border border-white/20 rounded-lg text-white/80 justify-center whitespace-nowrap overflow-hidden text-ellipsis",

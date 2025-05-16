@@ -50,7 +50,7 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                         className="rounded-lg"
                     />
                     <div className="flex flex-col justify-start items-start">
-                        <CardTitle className="text-xl leading-5 font-black text-white/80">
+                        <CardTitle className="text-xl leading-5 font-semibold text-white/80">
                             {title}
                         </CardTitle>
                         <section className="flex gap-1 items-center ">
@@ -75,7 +75,7 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                     ))}
                 </div>
 
-                <h3 className="text-sm text-white/80 mt-2 2xl:text-2xl">
+                <h3 className="text-sm text-white/80 mt-2 2xl:text-xl">
                     {rol.title}
                 </h3>
                 <h4 className="text-sm text-white/60 2xl:text-md">
