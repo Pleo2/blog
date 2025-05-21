@@ -7,7 +7,8 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import { Badge } from "@/components/ui/badge";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Calendar } from "feather-icons-react";
+import { Calendar, FileText, Star } from "feather-icons-react";
+import { StarIcon, StarsIcon } from "lucide-react";
 
 type BlogPostFrontmatter = {
     title?: string;
@@ -15,6 +16,18 @@ type BlogPostFrontmatter = {
     summary?: string;
     tags?: string[];
     // Puedes agregar más campos si los usas en el frontmatter
+};
+
+const lastpost = (content: BlogPostFrontmatter) => {
+    return {
+        Icon: Star,
+        name: "Personal Blog",
+        description: "My last post",
+        href: "#",
+        cta: "Learn more",
+        className: "",
+        background: <BuildFeaturedBlogPost {...content} />
+    };
 };
 
 function getLatestPost(): (BlogPostFrontmatter & { content: string }) | null {
@@ -46,6 +59,7 @@ export const ContainerBlogPost = () => {
     const title = typeof post.title === "string" ? post.title : "Untitled";
     const summary = typeof post.summary === "string" ? post.summary : "";
     const tags = Array.isArray(post.tags) ? post.tags : [];
+
     return (
         <div
             className={cn(
@@ -62,34 +76,67 @@ export const ContainerBlogPost = () => {
                     "xl:p-0 gap-2"
                 )}
             >
-                <CardHeader className="w-full flex-col items-start z-10 lg:gap-0 px-0 group-hover:opacity-20 transition-opacity duration-300">
-                    <section className="flex gap-1 items-center w-full lg:mt-2">
-                        <Calendar className="w-3 h-3 text-white/70 flex-shrink-0" />
-                        <span className="text-xs text-white/70 whitespace-nowrap overflow-hidden text-ellipsis">
-                            {publishedAt}
-                        </span>
-                    </section>
-                    <h3 className="w-full line-clamp-1 text-sm sm:text-sm md:text-sm font-medium text-white/90 overflow-hidden text-ellipsis lg:text-base xl:text-sm">
-                        {title}
-                    </h3>
-                    <div className="flex flex-wrap gap-1 mt-1 w-full">
-                        {tags.map((tag) => (
-                            <Badge
-                                key={tag}
-                                className="bg-white/20 rounded-lg hover:bg-blue-900 text-white px-1.5 py-0.5 text-[10px] sm:text-xs font-medium cursor-pointer transition-all duration-300 flex-shrink-0"
-                            >
-                                #{tag}
-                            </Badge>
-                        ))}
-                    </div>
-                </CardHeader>
-                <CardContent className="p-0 group-hover:opacity-20 transition-opacity duration-300">
-                    <p className="text-sm sm:text-xs md:text-sm text-white/70 line-clamp-4 w-full overflow-hidden  lg:line-clamp-3 xl:line-clamp-4 2xl:line-clamp-5">
-                        {summary}
-                    </p>
-                </CardContent>
+                <BentoCard
+                    name={"Personal Blog"}
+                    className={""}
+                    background={
+                        <BuildFeaturedBlogPost
+                            title={title}
+                            publishedAt={publishedAt}
+                            summary={summary}
+                            tags={tags}
+                        />
+                    }
+                    Icon={StarIcon}
+                    description={"My Last Post"}
+                    href={""}
+                    cta={"Learn more"}
+                    key={lastpost.name}
+                />
                 <BorderBeam duration={8} size={100} />
             </GlassCard>
         </div>
     );
 };
+
+export function BuildFeaturedBlogPost({
+    title = "Untitled",
+    publishedAt = "",
+    summary = "",
+    tags = []
+}: BlogPostFrontmatter) {
+    return (
+        <GlassCard
+            className={cn(
+                "absolute bg-white/5 p-4 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group gap-2 hover:blur-2xl"
+            )}
+        >
+            <CardHeader className="w-full flex-col items-start z-10 lg:gap-0 px-0 group-hover:opacity-20 transition-opacity duration-300">
+                <section className="flex gap-1 items-center w-full lg:mt-2">
+                    <Calendar className="w-3 h-3 text-white/70 flex-shrink-0" />
+                    <span className="text-xs text-white/70 whitespace-nowrap overflow-hidden text-ellipsis">
+                        {publishedAt}
+                    </span>
+                </section>
+                <h3 className="w-full line-clamp-1 text-sm sm:text-sm md:text-sm font-medium text-white/90 overflow-hidden text-ellipsis lg:text-base xl:text-sm">
+                    {title}
+                </h3>
+                <div className="flex flex-wrap gap-1 mt-1 w-full">
+                    {tags.map((tag) => (
+                        <Badge
+                            key={tag}
+                            className="bg-white/20 rounded-lg hover:bg-blue-900 text-white px-1.5 py-0.5 text-[10px] sm:text-xs font-medium cursor-pointer transition-all duration-300 flex-shrink-0"
+                        >
+                            #{tag}
+                        </Badge>
+                    ))}
+                </div>
+            </CardHeader>
+            <CardContent className="p-0 group-hover:opacity-20 transition-opacity duration-300">
+                <p className="text-sm sm:text-xs md:text-sm text-white/70 line-clamp-4 w-full overflow-hidden  lg:line-clamp-3 xl:line-clamp-4 2xl:line-clamp-5">
+                    {summary}
+                </p>
+            </CardContent>
+        </GlassCard>
+    );
+}
