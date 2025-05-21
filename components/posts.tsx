@@ -1,36 +1,30 @@
-import Link from 'next/link'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
+import { BlogPostsClient } from "@/components/posts-client";
+import { formatDate, getBlogPosts } from "app/blog/utils";
+import { Badge } from "@/components/ui/badge";
+
+export type BlogPostMeta = {
+    title?: string;
+    publishedAt?: string;
+    summary?: string;
+    tags?: string[];
+};
+
+function isMeta(obj: unknown): obj is BlogPostMeta {
+    return typeof obj === "object" && obj !== null && "publishedAt" in obj;
+}
 
 export function BlogPosts() {
-  let allBlogs = getBlogPosts()
-
-  return (
-    <div>
-      {allBlogs
+    const allBlogs = getBlogPosts()
         .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1
-          }
-          return 1
+            const am = isMeta(a.metadata) ? a.metadata : {};
+            const bm = isMeta(b.metadata) ? b.metadata : {};
+            const ad = am.publishedAt ? new Date(am.publishedAt) : new Date(0);
+            const bd = bm.publishedAt ? new Date(bm.publishedAt) : new Date(0);
+            return bd.getTime() - ad.getTime();
         })
-        .map((post) => (
-          <Link
-            key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
-          >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-                {formatDate(post.metadata.publishedAt, false)}
-              </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.metadata.title}
-              </p>
-            </div>
-          </Link>
-        ))}
-    </div>
-  )
+        .map((post) => ({
+            slug: post.slug,
+            metadata: isMeta(post.metadata) ? post.metadata : {}
+        }));
+    return <BlogPostsClient posts={allBlogs} />;
 }

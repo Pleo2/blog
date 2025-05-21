@@ -10,9 +10,9 @@ import {
     Laptop,
     FileCode2
 } from "lucide-react";
-import {
-    type ToolbarItem,
-    type ToolbarProps
+import type {
+    ToolbarItem,
+    ToolbarProps
 } from "@/components/kokonutui/toolbar.type";
 import { useRouter } from "next/navigation";
 
