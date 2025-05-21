@@ -17,25 +17,25 @@ import { CallToAction } from "./call-to-action/call-to-action";
 export const Bento = () => {
     return (
         <div
-            className={cn(
-                "flex flex-col gap-2 overflow-scroll",
-                "lg:grid lg:grid-cols-7 lg:grid-rows-7 lg:h-full"
-            )}
+        className={cn(
+            "flex flex-col gap-6 overflow-scroll",
+            "lg:gap-2 lg:grid lg:grid-cols-7 lg:grid-rows-7 lg:h-full"
+        )}
         >
+            {/* about me */}
+            <Aboutme />
+
+            {/* all of my experience */}
             <Container_1 />
+
             {/* profesional experience */}
             <ContainerPersonalExperience />
-            {/* call To Action*/}
-            <CallToAction />
 
             {/* My Setup */}
             <Setup />
 
             {/* my tecnological stack */}
             <ContainerStack />
-
-            {/* otra cosa mas */}
-            <Aboutme />
 
             {/* my projects galery */}
             <ProjectsGalery />

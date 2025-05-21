@@ -2,42 +2,41 @@
 @import "tw-animate-css";
 
 @theme {
-    --color-blue-base: "#0075FF";
-    --color-dark-blue: "#121241";
-    --color-dark-gray: "#1A1F37";
-    --color-green: "#05CD99";
-    --color-red: "#DC395F";
-    --color-mustard: "#ECB22E";
-    --animate-meteor: meteor 5s linear infinite;
+    --color-blue-base: oklch(0.6 0.2 264.05);
+    --color-dark-blue: oklch(0.15 0.1 280);
+    --color-dark-gray: oklch(0.18 0.05 280);
+    --color-emerald: oklch(0.75 0.15 170);
+    --color-coral: oklch(0.6 0.2 10);
+    --color-mustard: #FFCC43;
+    --animate-meteor: meteor 10s ease-in infinite;
 
     @keyframes meteor {
         0% {
-        transform: rotate(var(--angle)) translateX(0);
-        opacity: 1;
+            transform: rotate(var(--angle)) translateX(0);
+            opacity: 1;
         }
         70% {
-        opacity: 1;
+            opacity: 1;
         }
         100% {
-        transform: rotate(var(--angle)) translateX(-500px);
-        opacity: 0;
+            transform: rotate(var(--angle)) translateX(-500px);
+            opacity: 0;
         }
     }
 
     --animate-shine: shine var(--duration) infinite linear;
 
-  @keyframes shine {
-    0% {
-      background-position: 0% 0%;
+    @keyframes shine {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 100% 100%;
+        }
+        to {
+            background-position: 0% 0%;
+        }
     }
-    50% {
-      background-position: 100% 100%;
-    }
-    to {
-      background-position: 0% 0%;
-    }
-  }
-
 }
 
 :root {
@@ -326,7 +325,6 @@ table {
 
     .animate-slide-left-infinite-short {
         animation: slide-left-infinite 40s linear infinite; /* Ajusta la duración */
-
     }
 
     /* Tu utilidad de pausa, que ya deberías tener */
@@ -357,26 +355,26 @@ table {
 
 @keyframes marquee {
     from {
-      transform: translateX(0);
+        transform: translateX(0);
     }
     to {
-      transform: translateX(calc(-100% - var(--gap, 1rem)));
+        transform: translateX(calc(-100% - var(--gap, 1rem)));
     }
-  }
+}
 
-  @keyframes marquee-vertical {
+@keyframes marquee-vertical {
     from {
-      transform: translateY(0);
+        transform: translateY(0);
     }
     to {
-      transform: translateY(calc(-100% - var(--gap, 1rem)));
+        transform: translateY(calc(-100% - var(--gap, 1rem)));
     }
-  }
+}
 
-  .animate-marquee {
+.animate-marquee {
     animation: marquee var(--duration, 40s) linear infinite;
-  }
+}
 
-  .animate-marquee-vertical {
+.animate-marquee-vertical {
     animation: marquee-vertical var(--duration, 40s) linear infinite;
-  }
+}

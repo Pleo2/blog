@@ -9,11 +9,11 @@ export function AnimatedListItem({ children }: { children: React.ReactNode }) {
     initial: { scale: 0, opacity: 0 },
     animate: { scale: 1, opacity: 1, originY: 0 },
     exit: { scale: 0, opacity: 0 },
-    transition: { type: "spring", stiffness: 350, damping: 40 },
+    transition: { type: "spring", stiffness: 300, damping: 40 },
   }
 
   return (
-    <motion.div {...animations} layout className="mx-auto w-full">
+    <motion.div {...animations} layout className="mx-auto w-full ">
       {children}
     </motion.div>
   )
@@ -24,7 +24,7 @@ export interface AnimatedListProps extends ComponentPropsWithoutRef<"div"> {
   delay?: number
 }
 
-export const AnimatedList = React.memo(({ children, className, delay = 1000, ...props }: AnimatedListProps) => {
+export const AnimatedList = React.memo(({ children, className, delay = 1200, ...props }: AnimatedListProps) => {
   const [index, setIndex] = useState(0)
   const childrenArray = useMemo(() => React.Children.toArray(children), [children])
 

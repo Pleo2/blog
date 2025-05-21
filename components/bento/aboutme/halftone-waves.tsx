@@ -10,7 +10,7 @@ interface HalftoneWavesProps {
 
 export default function HalftoneWaves({
   backgroundColor = "#121241",
-  dotColor = "#ffffff",
+  dotColor = "#015FFB",
   dotOpacity = 1,
 }: HalftoneWavesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -88,5 +88,5 @@ export default function HalftoneWaves({
     }
   }, [backgroundColor, dotColor, dotOpacity])
 
-  return <canvas ref={canvasRef} className="w-full h-full" style={{ backgroundColor }} />
+  return <canvas ref={canvasRef} className="w-full h-full blur-lg" style={{ backgroundColor }} />
 }

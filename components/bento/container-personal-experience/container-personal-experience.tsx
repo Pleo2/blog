@@ -27,8 +27,8 @@ export const ContainerPersonalExperience = () => {
                             "relative flex gap-1 justify-center items-center text-white"
                         )}
                     >
-                        <Briefcase className={cn("w-4 lg:")} />
-                        <CardTitle className={cn("lg:")}>
+                        <Briefcase className={cn("w-4")} />
+                        <CardTitle className={cn("text-base")}>
                             Professional Experiences
                         </CardTitle>
                     </div>
