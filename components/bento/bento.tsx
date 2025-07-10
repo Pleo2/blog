@@ -18,7 +18,7 @@ export const Bento = () => {
     return (
         <div
         className={cn(
-            "flex flex-col gap-6 overflow-scroll",
+            "flex flex-col gap-6 overflow-hidden",
             "lg:gap-2 lg:grid lg:grid-cols-7 lg:grid-rows-7 lg:h-full"
         )}
         >

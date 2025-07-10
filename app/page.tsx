@@ -16,7 +16,7 @@ export default function Page() {
             <MainHero />
             <div
                 className={cn(
-                    "h-[63dvh] w-full rounded-lg mt-6 overflow-scroll",
+                    "h-[63dvh] w-full rounded-lg mt-6 overflow-hidden",
                     "sm:mt-7 md:h-[80dvh]",
                     "md:pb-0 2xl:h-full",
                 )}

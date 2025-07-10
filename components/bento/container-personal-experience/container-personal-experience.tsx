@@ -9,7 +9,7 @@ export const ContainerPersonalExperience = () => {
     return (
         <div
             className={cn(
-                " mb-3 sm:mb-0 col-span-full sm:col-start-1 sm:row-start-2 sm:col-span-2 sm:row-span-1",
+                "mb-3 sm:mb-0 col-span-full sm:col-start-1 sm:row-start-2 sm:col-span-2 sm:row-span-1",
                 "md:col-start-3 md:row-start-1 md:col-span-3 md:row-span-2",
                 "lg:col-span-2 lg:row-span-4 lg:col-start-4 lg:row-start-1",
                 "relative before:absolute before:rounded-lg before:bottom-0 before:w-full before:h-16 before:bg-gradient-to-t before:from-[#1349AB] before:z-20 before:to-transparent"
@@ -17,7 +17,8 @@ export const ContainerPersonalExperience = () => {
         >
             <GlassCard
                 className={cn(
-                    "before:content-[''] before:w-full before:h-24 pt-4 before:blur-2xl pb-0 h-full transition-transform hover:scale-[1.01] duration-300",
+                    "before:content-[''] before:w-full before:h-24",
+                    "overflow-hidden pt-4 before:blur-2xl pb-0 h-full transition-transform hover:scale-[1.01] duration-300",
                     "lg:m-0 gap-0"
                 )}
             >
@@ -35,7 +36,7 @@ export const ContainerPersonalExperience = () => {
                 </CardHeader>
                 <CardContent
                     className={cn(
-                        "overflow-auto max-h-[calc(100%-4rem)] rounded-2xl flex-col scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-transparent",
+                        "max-h-[calc(100%-4rem)] rounded-2xl flex-col element-with-scroll",
                         "lg:max-h-full lg:p-2 lg:px-2",
                         "xl:px-2 xl:mt-1"
                     )}

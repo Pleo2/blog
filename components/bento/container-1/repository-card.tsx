@@ -23,7 +23,7 @@ export const RepositorioCard = ({
                     <NumberTicker
                         value={numberRepositories}
                         className={cn(
-                            "whitespace-pre-wrap text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center",
+                            "whitespace-pre-wrap text-transparent bg-gradient-to-b from-white via-gray-100/80 bg-clip-text flex justify-center items-center",
                             "text-5xl",
                             "sm:text-5xl",
                             "lg:text-4xl",
@@ -32,7 +32,7 @@ export const RepositorioCard = ({
                     />
                     <span
                         className={cn(
-                            "text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text",
+                            "text-transparent bg-gradient-to-b from-white via-gray-100/80 bg-clip-text",
                             "text-4xl",
                             "sm:text-4xl",
                             "md:text-5xl",

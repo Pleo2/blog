@@ -1,4 +1,6 @@
+import { MainHero } from "@/components/hero/main-hero";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function ExperiencePage() {
     return (
@@ -11,12 +13,25 @@ export default function ExperiencePage() {
                 "xl:pb-36"
             )}
         >
-            <h1 className="text-3xl font-bold mb-4">Experience</h1>
-            <div className="flex-1 rounded-lg bg-white/5 p-6 text-white/80">
-                <p>
-                    Esta es la página de experiencia profesional. Aquí puedes
-                    agregar tu experiencia laboral, proyectos destacados, etc.
-                </p>
+            <MainHero />
+            <div
+                className={cn(
+                    "h-[63dvh] w-full rounded-lg mt-6 overflow-hidden",
+                    "sm:mt-7 md:h-[80dvh]",
+                    "md:pb-0 2xl:h-full",
+                )}
+            >
+                <div className="w-full h-full grid place-content-center">
+                    <Image
+                        className="rounded-lg h-max w-max"
+                        src="/working.webp"
+                        alt="Experience"
+                        width={600}
+                        height={600}
+                    />
+                    <p className="text-white/80 text-xl font-semibold text-center">Sorry, I'm still working on this section</p>
+                </div>
+                {/* <Bento /> */}
             </div>
         </section>
     );

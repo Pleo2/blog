@@ -59,7 +59,7 @@ const features = [
                         key={idx}
                         className={cn(
                             "relative w-72 cursor-pointer overflow-hidden rounded-lg border p-2",
-                            "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+                            "border-gray-100/[.1] bg-gray-100/[.01] hover:bg-gray-100/[.05]",
                             "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
                             "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
                         )}

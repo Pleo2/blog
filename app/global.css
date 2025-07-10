@@ -15,9 +15,11 @@
             transform: rotate(var(--angle)) translateX(0);
             opacity: 1;
         }
+
         70% {
             opacity: 1;
         }
+
         100% {
             transform: rotate(var(--angle)) translateX(-500px);
             opacity: 0;
@@ -30,9 +32,11 @@
         0% {
             background-position: 0% 0%;
         }
+
         50% {
             background-position: 100% 100%;
         }
+
         to {
             background-position: 0% 0%;
         }
@@ -82,6 +86,33 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* Scrollbars inside container, subtle macOS-style */
+.element-with-scroll {
+    overflow: auto;
+    scrollbar-gutter: stable both-edges;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.element-with-scroll::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+.element-with-scroll::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3px;
+}
+
+.element-with-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.element-with-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .dark {
@@ -176,10 +207,13 @@ body {
 }
 
 .fondo-con-blur {
-    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    position: relative;
+    /* Necesario para posicionar el pseudo-elemento */
     width: 100%;
-    height: 100vh; /* O la altura que necesites */
-    overflow: hidden; /* Para evitar que el pseudo-elemento se salga del contenedor */
+    height: 100vh;
+    /* O la altura que necesites */
+    overflow: hidden;
+    /* Para evitar que el pseudo-elemento se salga del contenedor */
 }
 
 .fondo-con-blur::before {
@@ -189,12 +223,15 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: inherit; /* Fixed the background color property */
+    background-color: inherit;
+    /* Fixed the background color property */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1; /* Para que esté detrás del contenido */
-    filter: blur(5px); /* Aplica el desenfoque a la imagen de fondo */
+    z-index: -1;
+    /* Para que esté detrás del contenido */
+    filter: blur(5px);
+    /* Aplica el desenfoque a la imagen de fondo */
 }
 
 .prose .anchor {
@@ -219,7 +256,7 @@ body {
     content: "#";
 }
 
-.prose *:hover > .anchor {
+.prose *:hover>.anchor {
     @apply visible;
 }
 
@@ -278,7 +315,7 @@ body {
     @apply list-decimal pl-6;
 }
 
-.prose > :first-child {
+.prose> :first-child {
     /* Override removing top margin, causing layout shift */
     margin-top: 1.25em !important;
     margin-bottom: 1.25em !important;
@@ -289,8 +326,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 /* Remove Safari input shadow on mobile */
@@ -313,18 +352,22 @@ table {
 }
 
 @layer utilities {
+
     /* Clase para slide-left (si ya no la tienes en config) */
     .animate-slide-left-infinite {
-        animation: slide-left-infinite 100s linear infinite; /* Ajusta la duración */
+        animation: slide-left-infinite 100s linear infinite;
+        /* Ajusta la duración */
     }
 
     /* NUEVA: Clase para slide-right */
     .animate-slide-right-infinite {
-        animation: slide-right-infinite 40s linear infinite; /* Usa la misma duración o ajústala */
+        animation: slide-right-infinite 40s linear infinite;
+        /* Usa la misma duración o ajústala */
     }
 
     .animate-slide-left-infinite-short {
-        animation: slide-left-infinite 40s linear infinite; /* Ajusta la duración */
+        animation: slide-left-infinite 40s linear infinite;
+        /* Ajusta la duración */
     }
 
     /* Tu utilidad de pausa, que ya deberías tener */
@@ -338,6 +381,7 @@ table {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-100%);
     }
@@ -348,6 +392,7 @@ table {
     from {
         transform: translateX(-100%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -357,6 +402,7 @@ table {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(calc(-100% - var(--gap, 1rem)));
     }
@@ -366,6 +412,7 @@ table {
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(calc(-100% - var(--gap, 1rem)));
     }

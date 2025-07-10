@@ -17,9 +17,9 @@ export const ExpertiseCard = () => {
                 <div className="flex gap-2 items-center h-max">
                     <NumberTicker
                         value={3}
-                        className="whitespace-pre-wrap text-5xl sm:text-5xl lg:text-4xl xl:text-5xl text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text flex justify-center items-center font-medium tracking-tighter"
+                        className="whitespace-pre-wrap text-5xl sm:text-5xl lg:text-4xl xl:text-5xl text-transparent bg-gradient-to-b from-white via-gray-100/80 bg-clip-text flex justify-center items-center font-medium tracking-tighter"
                     />
-                    <span className=" text-4xl sm:text-4xl md:text-5xl lg:text-2xl xl:text-5xl text-transparent bg-gradient-to-b from-gray-100/90 via-gray-300/50 bg-clip-text  ">
+                    <span className=" text-4xl sm:text-4xl md:text-5xl lg:text-2xl xl:text-5xl text-transparent bg-gradient-to-b from-white via-gray-100/80 bg-clip-text  ">
                         +
                     </span>
                 </div>
