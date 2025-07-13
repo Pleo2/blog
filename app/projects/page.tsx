@@ -1,4 +1,4 @@
-import { Bento } from "@/components/bento/bento";
+import { ProjectsSection } from "@/components/bento/projects-section/projects-section";
 import { MainHero } from "@/components/hero/main-hero";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
@@ -27,7 +27,7 @@ export default function ProjectsPage() {
                     "md:pb-0"
                 )}
             >
-                <Bento />
+                <ProjectsSection />
             </div>
         </section>
     );

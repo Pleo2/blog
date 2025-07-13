@@ -1,8 +1,9 @@
 import { MainHero } from "@/components/hero/main-hero";
 import { BlogPosts } from "@/components/posts";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Blog",
     description: "Read my blog."
 };
