@@ -15,10 +15,7 @@ export async function generateStaticParams() {
 export function generateMetadata({ params }) {
     const post = getBlogPosts().find((post) => post.slug === params.slug);
     if (!post) {
-        return;
-    }
-    if (!isMeta(post.metadata) || !post.metadata.title) {
-        return notFound();
+        notFound();
     }
 
     const {
@@ -55,22 +52,14 @@ export function generateMetadata({ params }) {
     };
 }
 
-function isMeta(obj: unknown): obj is {
-    title?: string;
-    publishedAt?: string;
-    summary?: string;
-    image?: string;
-} {
-    return typeof obj === "object" && obj !== null && "title" in obj;
-}
-
 export default function Blog({ params }) {
     const post = getBlogPosts().find((post) => post.slug === params.slug);
 
     if (!post) {
         notFound();
     }
-    const meta = isMeta(post.metadata) ? post.metadata : {};
+
+    const { metadata: meta } = post;
 
     return (
         <section
@@ -82,11 +71,6 @@ export default function Blog({ params }) {
                 "xl:pb-36"
             ].join(" ")}
         >
-            {/*
-              Usar Script para JSON-LD es seguro aquí porque solo se inserta un objeto JSON-LD
-              generado por el propio backend, sin interpolar datos de usuario ni contenido externo.
-              Esto es una práctica recomendada para SEO y rich snippets en Google.
-            */}
             <Script type="application/ld+json" id="ld-json">
                 {JSON.stringify({
                     "@context": "https://schema.org",
@@ -97,9 +81,7 @@ export default function Blog({ params }) {
                     description: meta.summary,
                     image: meta.image
                         ? `${baseUrl}${meta.image}`
-                        : `/og?title=${encodeURIComponent(
-                              meta.title || ""
-                          )}`,
+                        : `/og?title=${encodeURIComponent(meta.title)}`,
                     url: `${baseUrl}/blog/${post.slug}`,
                     author: {
                         "@type": "Person",
@@ -114,7 +96,7 @@ export default function Blog({ params }) {
                     </h1>
                     <div className="flex justify-between items-center text-sm">
                         <p className="text-sm text-neutral-300 dark:text-neutral-400">
-                            {formatDate(meta.publishedAt || "")}
+                            {formatDate(meta.publishedAt)}
                         </p>
                     </div>
                     <div

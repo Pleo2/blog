@@ -12,55 +12,58 @@ type Metadata = {
 function parseFrontmatter(fileContent: string) {
     const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
     const match = frontmatterRegex.exec(fileContent);
-    if (!match) return { metadata: {}, content: fileContent };
-    const frontMatterBlock = match[1];
     const content = fileContent.replace(frontmatterRegex, "").trim();
-    const frontMatterLines = frontMatterBlock.trim().split("\n");
-    const metadata: Partial<Metadata> = {};
 
-    for (let i = 0; i < frontMatterLines.length; i++) {
-        const line = frontMatterLines[i];
-        const [key, ...valueArr] = line.split(": ");
-        let value = valueArr.join(": ").trim();
-        if (key.trim() === "tags") {
-            // Soporta tags como array YAML
-            if (value.startsWith("[")) {
-                metadata.tags = value
-                    .replace(/\[|\]/g, "")
-                    .split(",")
-                    .map((t) => t.trim().replace(/^['"]|['"]$/g, ""))
-                    .filter(Boolean);
-            } else {
-                // tags:
-                //   - a
-                //   - b
-                //   - c
-                const tags: string[] = [];
-                let j = i + 1;
-                while (
-                    j < frontMatterLines.length &&
-                    frontMatterLines[j].trim().startsWith("-")
-                ) {
-                    tags.push(frontMatterLines[j].replace("-", "").trim());
-                    j++;
+    let metadata: Partial<Metadata> = {};
+
+    if (match) {
+        const frontMatterBlock = match[1];
+        const frontMatterLines = frontMatterBlock.trim().split("\n");
+
+        for (let i = 0; i < frontMatterLines.length; i++) {
+            const line = frontMatterLines[i];
+            const [key, ...valueArr] = line.split(": ");
+            let value = valueArr.join(": ").trim();
+            const k = key.trim() as keyof Metadata;
+
+            if (k === "tags") {
+                if (value.startsWith("[")) {
+                    metadata.tags = value
+                        .replace(/\[|\]/g, "")
+                        .split(",")
+                        .map((t) => t.trim().replace(/^['"]|['"]$/g, ""))
+                        .filter(Boolean);
+                } else {
+                    const tags: string[] = [];
+                    let j = i + 1;
+                    while (
+                        j < frontMatterLines.length &&
+                        frontMatterLines[j].trim().startsWith("-")
+                    ) {
+                        tags.push(
+                            frontMatterLines[j].replace("-", "").trim()
+                        );
+                        j++;
+                    }
+                    metadata.tags = tags;
+                    i = j - 1;
                 }
-                metadata.tags = tags;
-                i = j - 1;
-            }
-        } else {
-            value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-            if (key.trim() !== "") {
-                const k = key.trim() as keyof Metadata;
-                if (
-                    k === "title" ||
-                    k === "publishedAt" ||
-                    k === "summary" ||
-                    k === "image"
-                ) {
-                    metadata[k] = value;
-                }
+            } else if (k) {
+                value = value.replace(/^['"](.*)['"]$/, "$1");
+                metadata[k] = value;
             }
         }
+    }
+
+    // Asegurarse de que los campos requeridos existan
+    if (!metadata.title) {
+        metadata.title = "Untitled";
+    }
+    if (!metadata.publishedAt) {
+        metadata.publishedAt = new Date().toISOString();
+    }
+    if (!metadata.summary) {
+        metadata.summary = "No summary available.";
     }
 
     return { metadata: metadata as Metadata, content };

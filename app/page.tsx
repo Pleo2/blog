@@ -1,6 +1,12 @@
 import { Bento } from "@/components/bento/bento";
 import { MainHero } from "@/components/hero/main-hero";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Home",
+    description: "Welcome to my personal portfolio",
+};
 
 export default function Page() {
     return (

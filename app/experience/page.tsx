@@ -1,6 +1,11 @@
 import { MainHero } from "@/components/hero/main-hero";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Experience",
+    description: "My professional experience.",
+};
 
 export default function ExperiencePage() {
     return (
@@ -22,16 +27,8 @@ export default function ExperiencePage() {
                 )}
             >
                 <div className="w-full h-full grid place-content-center">
-                    <Image
-                        className="rounded-lg h-max w-max"
-                        src="/working.webp"
-                        alt="Experience"
-                        width={600}
-                        height={600}
-                    />
-                    <p className="text-white/80 text-xl font-semibold text-center">Sorry, I'm still working on this section</p>
+                    <p className="text-white/80 text-xl font-semibold text-center">Coming soon...</p>
                 </div>
-                {/* <Bento /> */}
             </div>
         </section>
     );
