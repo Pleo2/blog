@@ -9,7 +9,7 @@ type Metadata = {
     tags?: string[];
 };
 
-function parseFrontmatter(fileContent: string) {
+function parseFrontmatter(fileContent: string): { metadata: Partial<Metadata>; content: string } {
     const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
     const match = frontmatterRegex.exec(fileContent);
     if (!match) return { metadata: {}, content: fileContent };

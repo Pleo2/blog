@@ -1,44 +1,96 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { GlassCard } from "@/components/cards/glass-card";
-import { BentoCard } from "@/components/magicui/bento-grid";
 import { Marquee } from "@/components/magicui/marquee";
 import { ShineBorder } from "@/components/magicui/shine-border";
-import { CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Code, Palette } from "lucide-react";
+import { Code } from "lucide-react";
+import { ProjectsBentoCard } from "./projects-bento-card";
 import Image from "next/image";
 
 const files = [
-    {
-        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/215shots_so.webp",
-        name: "Giphycloneapitest",
-        body: "Es un clon de Giphy construido con React. Su objetivo principal es permitir a los usuarios explorar, buscar y visualizar gifs, clips y stories (historias), al igual que la plataforma original de Giphy."
-    },
-    {
-        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/457_1x_shots_so.webp",
-        name: "Vicky Hornea Blog",
-        body: "es una aplicación web desarrollada para centralizar y compartir video-recetas de repostería y cocina, conectando contenido de un canal de YouTube con una experiencia digital organizada y atractiva."
-    },
-    {
-        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/594_1x_shots_so.webp",
-        name: "PokeGraph",
-        body: "es un repositorio de GitHub cuyo nombre sugiere que se trata de una aplicación relacionada con la visualización de grafos (“force-graph”) utilizando tecnologías modernas como Astro "
-    },
-    {
-        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/673_1x_shots_so.webp",
-        name: "Freelance Portfolio",
-        body: "Este proyecto es un sitio web de portafolio profesional desarrollado con Astro 5.2, orientado a freelancers que buscan mostrar su trabajo en línea de manera moderna y optimizada."
-    },
-    {
-        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/952shots_so.webp",
-        name: "TierList Maker",
-        body: "Aplicación web interactiva desarrollada con React y Vite que permite a los usuarios crear y personalizar sus propias Tier Lists de manera sencilla y visual"
-    },
-    {
-        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/956_1x_shots_so.webp",
-        name: "Clean Nude E-comerce",
-        body: " es una tienda online desarrollada en TypeScript que se integra directamente con Shopify. El proyecto ofrece una experiencia de e-commerce moderna, rápida y segura, permitiendo gestionar productos, ventas y pedidos a través de la plataforma Shopify."
-    }
+  {
+    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/215shots_so.webp",
+    name: "Giphycloneapitest",
+    body: "A Giphy clone built with React, enabling users to browse, search, and view GIFs, clips, and stories just like the original Giphy platform."
+  },
+  {
+    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/457_1x_shots_so.webp",
+    name: "Vicky Hornea Blog",
+    body: "A web application for centralizing and sharing baking and cooking video recipes, integrating YouTube content into an organized, engaging digital experience."
+  },
+  {
+    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/594_1x_shots_so.webp",
+    name: "PokeGraph",
+    body: "An Astro-powered GitHub project that renders interactive force-directed graphs for modern data visualization."
+  },
+  {
+    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/673_1x_shots_so.webp",
+    name: "Freelance Portfolio",
+    body: "A professional freelance portfolio site built with Astro 5.2 to showcase work online in a modern, optimized format."
+  },
+  {
+    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/952shots_so.webp",
+    name: "TierList Maker",
+    body: "An interactive web app built with React and Vite, allowing users to create and customize their own tier lists with visual flair."
+  },
+  {
+    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/956_1x_shots_so.webp",
+    name: "Clean Nude E-commerce",
+    body: "An online store built in TypeScript and integrated with Shopify, delivering a fast, secure e-commerce experience for managing products, sales, and orders seamlessly."
+  }
 ];
+
+const firstRow = files.slice(0, files.length / 3);
+const secondRow = files.slice(files.length / 3, (2 * files.length) / 3);
+const thirdRow = files.slice((2 * files.length) / 3);
+
+
+
+
+
+
+const ProjectCard = ({
+    imgUrl,
+    name,
+    body,
+}: {
+    imgUrl: string
+    name: string
+    body: string
+}) => {
+        return (
+        <figure
+            className={cn(
+                "relative w-72 cursor-pointer overflow-hidden rounded-lg border p-2",
+                "border-gray-100/[.1] bg-gray-100/[.01] hover:bg-gray-100/[.05]",
+                "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+                "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+            )}
+        >
+            <div className="flex flex-row items-center w-full">
+                <div className="flex flex-col w-full">
+                    <Image
+                        src={imgUrl}
+                        alt={name}
+                        width={600}
+                        height={100}
+                        className="rounded-lg drop-shadow-xl mb-2"
+                        loading="eager"
+                    />
+                    <div className="flex items-center">
+                        <figcaption className="text-sm font-semibold text-mustard">
+                            {name}
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+            <blockquote className="text-xs mt-1 text-white/60 line-clamp-5">
+                {body}
+            </blockquote>
+        </figure>
+    )
+}
 
 const features = [
     {
@@ -50,54 +102,133 @@ const features = [
         cta: "Learn more",
         className: "col-span-3 lg:col-span-1",
         background: (
-            <Marquee
-                pauseOnHover
-                className="absolute top-5 [--duration:40s] [mask-image:linear-gradient(to_top,transparent_1%,#000_20%)] "
-            >
-                {files.map((f, idx) => (
-                    <figure
-                        key={idx}
-                        className={cn(
-                            "relative w-72 cursor-pointer overflow-hidden rounded-lg border p-2",
-                            "border-gray-100/[.1] bg-gray-100/[.01] hover:bg-gray-100/[.05]",
-                            "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-                            "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
-                        )}
-                    >
-                        <div className="flex flex-row items-center w-full">
-                            <div className="flex flex-col w-full">
-                                <Image
-                                    src={f.imgUrl}
-                                    alt={f.name}
-                                    width={600}
-                                    height={100}
-                                    className="rounded-lg drop-shadow-xl  mb-2"
-                                    loading="eager"
-                                />
-                                <div className="flex items-center">
-                                    {/* <span className="mx-1 text-mustard">·</span> */}
-                                    <figcaption className="text-sm font-semibold text-mustard ">
-                                        {f.name}
-                                    </figcaption>
+            <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
+                <div
+                    className="flex flex-row items-center gap-4"
+                    style={{
+                        transform:
+                            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
+                    }}
+                >
+                    <Marquee pauseOnHover vertical className="[--duration:20s]">
+                        {firstRow.map((f, idx) => (
+                            <figure
+                                key={idx}
+                                className={cn(
+                                    "relative w-72 cursor-pointer overflow-hidden rounded-lg border p-2",
+                                    "border-gray-100/[.1] bg-gray-100/[.01] hover:bg-gray-100/[.05]",
+                                    "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+                                    "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+                                )}
+                            >
+                                <div className="flex flex-row items-center w-full">
+                                    <div className="flex flex-col w-full">
+                                        <Image
+                                            src={f.imgUrl}
+                                            alt={f.name}
+                                            width={600}
+                                            height={100}
+                                            className="rounded-lg drop-shadow-xl mb-2"
+                                            loading="eager"
+                                        />
+                                        <div className="flex items-center">
+                                            <figcaption className="text-sm font-semibold text-mustard">
+                                                {f.name}
+                                            </figcaption>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <blockquote className=" text-xs mt-1 text-white/60 line-clamp-5">
-                            {f.body}
-                        </blockquote>
-                    </figure>
-                ))}
-            </Marquee>
+                                <blockquote className="text-xs mt-1 text-white/60 line-clamp-5">
+                                    {f.body}
+                                </blockquote>
+                            </figure>
+                        ))}
+                    </Marquee>
+                    <Marquee pauseOnHover vertical className="[--duration:20s]">
+                        {secondRow.map((f, idx) => (
+                            <figure
+                                key={idx}
+                                className={cn(
+                                    "relative w-72 cursor-pointer overflow-hidden rounded-lg border p-2",
+                                    "border-gray-100/[.1] bg-gray-100/[.01] hover:bg-gray-100/[.05]",
+                                    "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+                                    "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+                                )}
+                            >
+                                <div className="flex flex-row items-center w-full">
+                                    <div className="flex flex-col w-full">
+                                        <Image
+                                            src={f.imgUrl}
+                                            alt={f.name}
+                                            width={600}
+                                            height={100}
+                                            className="rounded-lg drop-shadow-xl mb-2"
+                                            loading="eager"
+                                        />
+                                        <div className="flex items-center">
+                                            <figcaption className="text-sm font-semibold text-mustard">
+                                                {f.name}
+                                            </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <blockquote className="text-xs mt-1 text-white/60 line-clamp-5">
+                                    {f.body}
+                                </blockquote>
+                            </figure>
+                        ))}
+                    </Marquee>
+                    <Marquee pauseOnHover vertical className="[--duration:20s]">
+                        {thirdRow.map((f, idx) => (
+                            <figure
+                                key={idx}
+                                className={cn(
+                                    "relative w-72 cursor-pointer overflow-hidden rounded-lg border p-2",
+                                    "border-gray-100/[.1] bg-gray-100/[.01] hover:bg-gray-100/[.05]",
+                                    "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+                                    "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+                                )}
+                            >
+                                <div className="flex flex-row items-center w-full">
+                                    <div className="flex flex-col w-full">
+                                        <Image
+                                            src={f.imgUrl}
+                                            alt={f.name}
+                                            width={600}
+                                            height={100}
+                                            className="rounded-lg drop-shadow-xl mb-2"
+                                            loading="eager"
+                                        />
+                                        <div className="flex items-center">
+                                            <figcaption className="text-sm font-semibold text-mustard">
+                                                {f.name}
+                                            </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <blockquote className="text-xs mt-1 text-white/60 line-clamp-5">
+                                    {f.body}
+                                </blockquote>
+                            </figure>
+                        ))}
+                    </Marquee>
+                </div>
+
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+            </div>
         )
     }
 ];
 export const ProjectsGalery = () => {
     return (
         <div className="col-start-3 row-start-3 row-span-5 col-span-3 min-h-96 h-full lg:min-h-max lg:col-span-3 lg:row-span-5 lg:col-start-1 lg:row-start-3">
-            <GlassCard className="py-0 min-h-[500px] h-[500px] lg:h-full lg:min-h-max">
-                <ShineBorder />
+            <GlassCard className={cn("py-0 min-h-[500px] h-full lg:h-full lg:min-h-max")}>
+                <ShineBorder duration={20} />
                 {features.map((feature, idx) => (
-                    <BentoCard key={idx} {...feature} />
+                    <ProjectsBentoCard key={idx} {...feature} />
                 ))}
             </GlassCard>
         </div>

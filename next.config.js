@@ -2,6 +2,7 @@
 const nextConfig = {
     // ... otras configuraciones que puedas tener ...
     images: {
+        domains: ['pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev'],
         remotePatterns: [
             {
                 protocol: "https",
