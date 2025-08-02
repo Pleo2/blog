@@ -97,12 +97,12 @@ const features = [
         cta: "Learn more",
         className: "col-span-3 lg:col-span-1",
         background: (
-            <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
+            <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:1000px]">
                 <div
                     className="flex flex-row items-center gap-4"
                     style={{
                         transform:
-                            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)"
+                            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(10deg) rotateY(-10deg) rotateZ(20deg)"
                     }}
                 >
                     <Marquee pauseOnHover vertical className="[--duration:20s]">
