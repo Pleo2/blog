@@ -1,7 +1,7 @@
 import { FileText, Home, Settings, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ToolbarClient } from "../kokonutui/toolbar-client";
-import { Toolbar } from "../kokonutui/toolbar";
+import { ToolbarClient } from "@/components/kokonutui/toolbar-client";
+import { Toolbar } from "@/components/kokonutui/toolbar";
 import { Suspense } from "react";
 
 export const Navbar = () => {

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { GlassCard } from "../cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { Container_1 } from "./container-1/container-1";
 import { ContainerBlogPost } from "./container-blog-post/container-blog-post";
 import { Briefcase, FileTextIcon, Palette } from "lucide-react";
@@ -17,10 +17,10 @@ import { CallToAction } from "./call-to-action/call-to-action";
 export const Bento = () => {
     return (
         <div
-        className={cn(
-            "flex flex-col gap-6 overflow-hidden",
-            "lg:gap-2 lg:grid lg:grid-cols-7 lg:grid-rows-7 lg:h-full"
-        )}
+            className={cn(
+                "flex flex-col gap-6 overflow-hidden",
+                "lg:gap-2 lg:grid lg:grid-cols-7 lg:grid-rows-7 lg:h-full"
+            )}
         >
             {/* about me */}
             <Aboutme />

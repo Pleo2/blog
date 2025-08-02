@@ -1,5 +1,5 @@
 import { Clock } from "feather-icons-react";
-import { GlassCard } from "../cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { cn } from "@/lib/utils";
 
 export const WakatimeHours = () => {

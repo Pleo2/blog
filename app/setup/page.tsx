@@ -1,4 +1,4 @@
-import { MainHero } from "@/components/hero/main-hero";
+import { MainHero } from "@/components/ui/hero/main-hero";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
