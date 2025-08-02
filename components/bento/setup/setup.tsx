@@ -1,4 +1,4 @@
-import { GlassCard } from "@/components/cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import AnimatedListShow from "@/components/magicui/animated-list-show";
 import { BentoCard } from "@/components/magicui/bento-grid";
 import { CardContent } from "@/components/ui/card";

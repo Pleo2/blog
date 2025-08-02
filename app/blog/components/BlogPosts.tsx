@@ -1,5 +1,5 @@
-import { BlogPostsClient } from "@/components/posts-client";
-import { formatDate, getBlogPosts } from "app/blog/utils";
+import { BlogPostsClient } from "./BlogPostsClient";
+import { formatDate, getBlogPosts } from "../utils";
 import { Badge } from "@/components/ui/badge";
 
 export type BlogPostMeta = {

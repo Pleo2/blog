@@ -1,4 +1,4 @@
-import { GlassCard } from "@/components/cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";

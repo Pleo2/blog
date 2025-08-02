@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { GlassCard } from "@/components/cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { Marquee } from "@/components/magicui/marquee";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { cn } from "@/lib/utils";
@@ -9,57 +9,52 @@ import { ProjectsBentoCard } from "./projects-bento-card";
 import Image from "next/image";
 
 const files = [
-  {
-    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/215shots_so.webp",
-    name: "Giphycloneapitest",
-    body: "A Giphy clone built with React, enabling users to browse, search, and view GIFs, clips, and stories just like the original Giphy platform."
-  },
-  {
-    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/457_1x_shots_so.webp",
-    name: "Vicky Hornea Blog",
-    body: "A web application for centralizing and sharing baking and cooking video recipes, integrating YouTube content into an organized, engaging digital experience."
-  },
-  {
-    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/594_1x_shots_so.webp",
-    name: "PokeGraph",
-    body: "An Astro-powered GitHub project that renders interactive force-directed graphs for modern data visualization."
-  },
-  {
-    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/673_1x_shots_so.webp",
-    name: "Freelance Portfolio",
-    body: "A professional freelance portfolio site built with Astro 5.2 to showcase work online in a modern, optimized format."
-  },
-  {
-    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/952shots_so.webp",
-    name: "TierList Maker",
-    body: "An interactive web app built with React and Vite, allowing users to create and customize their own tier lists with visual flair."
-  },
-  {
-    imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/956_1x_shots_so.webp",
-    name: "Clean Nude E-commerce",
-    body: "An online store built in TypeScript and integrated with Shopify, delivering a fast, secure e-commerce experience for managing products, sales, and orders seamlessly."
-  }
+    {
+        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/215shots_so.webp",
+        name: "Giphycloneapitest",
+        body: "A Giphy clone built with React, enabling users to browse, search, and view GIFs, clips, and stories just like the original Giphy platform."
+    },
+    {
+        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/457_1x_shots_so.webp",
+        name: "Vicky Hornea Blog",
+        body: "A web application for centralizing and sharing baking and cooking video recipes, integrating YouTube content into an organized, engaging digital experience."
+    },
+    {
+        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/594_1x_shots_so.webp",
+        name: "PokeGraph",
+        body: "An Astro-powered GitHub project that renders interactive force-directed graphs for modern data visualization."
+    },
+    {
+        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/673_1x_shots_so.webp",
+        name: "Freelance Portfolio",
+        body: "A professional freelance portfolio site built with Astro 5.2 to showcase work online in a modern, optimized format."
+    },
+    {
+        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/952shots_so.webp",
+        name: "TierList Maker",
+        body: "An interactive web app built with React and Vite, allowing users to create and customize their own tier lists with visual flair."
+    },
+    {
+        imgUrl: "https://pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev/personal-projects/956_1x_shots_so.webp",
+        name: "Clean Nude E-commerce",
+        body: "An online store built in TypeScript and integrated with Shopify, delivering a fast, secure e-commerce experience for managing products, sales, and orders seamlessly."
+    }
 ];
 
 const firstRow = files.slice(0, files.length / 3);
 const secondRow = files.slice(files.length / 3, (2 * files.length) / 3);
 const thirdRow = files.slice((2 * files.length) / 3);
 
-
-
-
-
-
 const ProjectCard = ({
     imgUrl,
     name,
-    body,
+    body
 }: {
-    imgUrl: string
-    name: string
-    body: string
+    imgUrl: string;
+    name: string;
+    body: string;
 }) => {
-        return (
+    return (
         <figure
             className={cn(
                 "relative w-72 cursor-pointer overflow-hidden rounded-lg border p-2",
@@ -89,8 +84,8 @@ const ProjectCard = ({
                 {body}
             </blockquote>
         </figure>
-    )
-}
+    );
+};
 
 const features = [
     {
@@ -107,7 +102,7 @@ const features = [
                     className="flex flex-row items-center gap-4"
                     style={{
                         transform:
-                            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
+                            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)"
                     }}
                 >
                     <Marquee pauseOnHover vertical className="[--duration:20s]">
@@ -225,7 +220,11 @@ const features = [
 export const ProjectsGalery = () => {
     return (
         <div className="col-start-3 row-start-3 row-span-5 col-span-3 min-h-96 h-full lg:min-h-max lg:col-span-3 lg:row-span-5 lg:col-start-1 lg:row-start-3">
-            <GlassCard className={cn("py-0 min-h-[500px] h-full lg:h-full lg:min-h-max")}>
+            <GlassCard
+                className={cn(
+                    "py-0 min-h-[500px] h-full lg:h-full lg:min-h-max"
+                )}
+            >
                 <ShineBorder duration={20} />
                 {features.map((feature, idx) => (
                     <ProjectsBentoCard key={idx} {...feature} />

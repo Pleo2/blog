@@ -1,5 +1,5 @@
-import { MainHero } from "@/components/hero/main-hero";
-import { BlogPosts } from "@/components/posts";
+import { MainHero } from "@/components/ui/hero/main-hero";
+import { BlogPosts } from "./components/BlogPosts";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -24,7 +24,7 @@ export default function Page() {
                 className={cn(
                     "h-[63dvh] w-full rounded-lg mt-6 overflow-hidden",
                     "sm:mt-7 md:h-[80dvh]",
-                    "md:pb-0 2xl:h-full",
+                    "md:pb-0 2xl:h-full"
                 )}
             >
                 <div className="w-full h-full grid place-content-center">
@@ -35,7 +35,9 @@ export default function Page() {
                         width={600}
                         height={600}
                     />
-                    <p className="text-white/80 text-xl font-semibold text-center">Sorry, I'm still working on this section</p>
+                    <p className="text-white/80 text-xl font-semibold text-center">
+                        Sorry, I'm still working on this section
+                    </p>
                 </div>
                 {/* <Bento /> */}
             </div>

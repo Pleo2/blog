@@ -1,4 +1,4 @@
-import { GlassCard } from "@/components/cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { PocketKnife } from "lucide-react";
 import { SlideFront } from "./slide-front";
@@ -31,7 +31,7 @@ export const ContainerStack = () => {
                         <SlideBackend />
                         {/* DevOps and Deployment */}
                         {/* <p className="text-white/80 text-xs ">Devops and Deployment</p> */}
-                        <SlideAll/>
+                        <SlideAll />
                     </div>
                 </CardContent>
             </GlassCard>

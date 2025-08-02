@@ -3,26 +3,14 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import {
-    Home,
-    FileText,
-    BriefcaseBusiness,
-    Laptop,
-    FileCode2
-} from "lucide-react";
 import type {
     ToolbarItem,
     ToolbarProps
 } from "@/components/kokonutui/toolbar.type";
+import { navItems as toolbarItems } from "@/config/navItems";
 import { useRouter } from "next/navigation";
 
-const toolbarItems: ToolbarItem[] = [
-    { id: "/", title: "Home", icon: Home },
-    { id: "experience", title: "Experience", icon: BriefcaseBusiness },
-    { id: "blog", title: "Blog", icon: FileText },
-    { id: "setup", title: "Setup", icon: Laptop },
-    { id: "projects", title: "Projects", icon: FileCode2 }
-];
+// toolbarItems imported desde la configuración
 
 const buttonVariants = {
     initial: {

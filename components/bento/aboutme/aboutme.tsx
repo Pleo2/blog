@@ -1,4 +1,4 @@
-import { GlassCard } from "@/components/cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { PersonStanding, UserRoundSearch } from "lucide-react";
 import HalftoneWaves from "./halftone-waves";
@@ -7,9 +7,9 @@ export const Aboutme = () => {
     return (
         <div className="relative min-h-64 overflow-hidden rounded-lg col-start-3 row-start-6 col-span-5 lg:min-h-max lg:col-span-2 lg:row-span-3 lg:col-start-6 lg:row-start-1 h-[10rem] lg:h-full">
             <HalftoneWaves
-                // backgroundColor="#112F64"
-                // dotColor="#003F86"
-                // dotOpacity={0.9}
+            // backgroundColor="#112F64"
+            // dotColor="#003F86"
+            // dotOpacity={0.9}
             />
             <div className="absolute inset-0 flex items-center justify-center">
                 <GlassCard className="z-10 backdrop-blur-[2px] gap-2  justify-center">

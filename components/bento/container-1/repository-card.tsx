@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { GlassCard } from "../../cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { Github } from "feather-icons-react";
 import { Meteors } from "@/components/magicui/meteors";
 import { NumberTicker } from "@/components/magicui/number-ticker";

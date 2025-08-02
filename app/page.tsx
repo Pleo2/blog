@@ -1,5 +1,5 @@
 import { Bento } from "@/components/bento/bento";
-import { MainHero } from "@/components/hero/main-hero";
+import { MainHero } from "@/components/ui/hero/main-hero";
 import { cn } from "@/lib/utils";
 
 export default function Page() {
@@ -18,7 +18,7 @@ export default function Page() {
                 className={cn(
                     "h-[63dvh] w-full rounded-lg mt-6 overflow-hidden",
                     "sm:mt-7 md:h-[80dvh]",
-                    "md:pb-0 2xl:h-full",
+                    "md:pb-0 2xl:h-full"
                 )}
             >
                 <Bento />

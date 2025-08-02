@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { GlassCard } from "../../cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { cn } from "@/lib/utils";
 import { Meteors } from "@/components/magicui/meteors";
 import { NumberTicker } from "@/components/magicui/number-ticker";

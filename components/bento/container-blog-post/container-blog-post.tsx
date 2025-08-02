@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { GlassCard } from "@/components/cards/glass-card";
+import { GlassCard } from "@/components/ui/cards/glass-card";
 import { BentoCard } from "@/components/magicui/bento-grid";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { Badge } from "@/components/ui/badge";
