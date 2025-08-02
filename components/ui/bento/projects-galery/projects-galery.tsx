@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { GlassCard } from "@/components/ui/cards/glass-card";
-import { Marquee } from "@/components/magicui/marquee";
-import { ShineBorder } from "@/components/magicui/shine-border";
+import { Marquee } from "@/components/ui/magicui/marquee";
+import { ShineBorder } from "@/components/ui/magicui/shine-border";
 import { cn } from "@/lib/utils";
 import { Code } from "lucide-react";
 import { ProjectsBentoCard } from "./projects-bento-card";

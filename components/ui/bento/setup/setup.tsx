@@ -1,6 +1,6 @@
 import { GlassCard } from "@/components/ui/cards/glass-card";
-import AnimatedListShow from "@/components/magicui/animated-list-show";
-import { BentoCard } from "@/components/magicui/bento-grid";
+import AnimatedListShow from "@/components/ui/magicui/animated-list-show";
+import { BentoCard } from "@/components/ui/magicui/bento-grid";
 import { CardContent } from "@/components/ui/card";
 import { BellIcon, PcCase } from "lucide-react";
 

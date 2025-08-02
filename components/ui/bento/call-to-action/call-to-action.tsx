@@ -1,5 +1,5 @@
 import { GlassCard } from "@/components/ui/cards/glass-card";
-import { ShineBorder } from "@/components/magicui/shine-border";
+import { ShineBorder } from "@/components/ui/magicui/shine-border";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Briefcase } from "lucide-react";
 

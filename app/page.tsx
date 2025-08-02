@@ -1,4 +1,4 @@
-import { Bento } from "@/components/bento/bento";
+import { Bento } from "@/components/ui/bento";
 import { MainHero } from "@/components/ui/hero/main-hero";
 import { cn } from "@/lib/utils";
 

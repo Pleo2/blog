@@ -1,8 +1,8 @@
 import { Clock } from "feather-icons-react";
 import { GlassCard } from "@/components/ui/cards/glass-card";
 import { cn } from "@/lib/utils";
-import { Meteors } from "@/components/magicui/meteors";
-import { NumberTicker } from "@/components/magicui/number-ticker";
+import { Meteors } from "@/components/ui/magicui/meteors";
+import { NumberTicker } from "@/components/ui/magicui/number-ticker";
 
 export const WakatimeHours = () => {
     return (

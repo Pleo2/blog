@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 import { GlassCard } from "@/components/ui/cards/glass-card";
 import { Github } from "feather-icons-react";
-import { Meteors } from "@/components/magicui/meteors";
-import { NumberTicker } from "@/components/magicui/number-ticker";
+import { Meteors } from "@/components/ui/magicui/meteors";
+import { NumberTicker } from "@/components/ui/magicui/number-ticker";
 
 export const RepositorioCard = ({
     numberRepositories
