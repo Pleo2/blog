@@ -4,16 +4,8 @@ import { EmailClient } from "./email-client";
 export const SocialSection = () => {
     const socialLinksData = [
         {
-            name: "Twitter",
-            href: "https://twitter.com/yourprofile",
-            IconComponent: Twitter,
-            iconClassName: "w-9 h-9 stroke-1",
-            hoverIconClassName: "w-9 h-9 p-1 stroke-1",
-            loginIconContainerClassName: "w-9"
-        },
-        {
             name: "LinkedIn",
-            href: "https://linkedin.com/in/yourprofile",
+            href: "https://www.linkedin.com/in/pleo2/",
             IconComponent: Linkedin,
             iconClassName: "w-9 h-9 stroke-1",
             hoverIconClassName: "w-9 h-9 p-1 stroke-1",
@@ -21,20 +13,12 @@ export const SocialSection = () => {
         },
         {
             name: "GitHub",
-            href: "https://github.com/yourprofile",
+            href: "https://github.com/Pleo2",
             IconComponent: Github,
             iconClassName: "w-9 h-9 stroke-1",
             hoverIconClassName: "w-9 h-9 p-1 stroke-1",
             loginIconContainerClassName: "w-9"
         },
-        {
-            name: "Threads",
-            href: "https://treads.com/yourprofile",
-            IconComponent: AtSign,
-            iconClassName: "w-9 h-9 stroke-1",
-            hoverIconClassName: "w-9 h-9 p-1 stroke-1",
-            loginIconContainerClassName: "w-9"
-        }
     ];
 
     return (
