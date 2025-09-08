@@ -10,7 +10,7 @@ export const MainHero = () => {
                 </h1>
             </div>
 
-            <div className="flex mt-4 items-center justify-start h-max">
+            <div className="flex items-center justify-start h-max">
                 <SocialSection />
                 {/* <Wakatime /> */}
             </div>

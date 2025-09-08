@@ -40,13 +40,17 @@ export const SocialSection = () => {
     return (
         <>
             <div className="flex gap-4 opacity-70 z-50">
-                {socialLinksData.map((item) => (
+                {socialLinksData.map((item, index) => (
                     <a
                         key={item.name}
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group transition-all duration-500 hover:scale-110"
+                        className={`group transition-all duration-500 hover:scale-110 opacity-0 translate-y-4 animate-fade-in-up`}
+                        style={{
+                            animationDelay: `${index * 150}ms`,
+                            animationFillMode: 'forwards'
+                        }}
                         aria-label={`Visita mi perfil de ${item.name}`}
                     >
                         <span className="block group-hover:hidden">
@@ -61,7 +65,13 @@ export const SocialSection = () => {
                         </span>
                     </a>
                 ))}
-                <span className="w-9 h-9">
+                <span 
+                    className="w-9 h-9 opacity-0 translate-y-4 animate-fade-in-up"
+                    style={{
+                        animationDelay: `${socialLinksData.length * 150}ms`,
+                        animationFillMode: 'forwards'
+                    }}
+                >
                     <EmailClient />
                 </span>
                 {/* <Mail className="w-7 stroke-1" onClick={() => alert('Mail icon clicked!')} /> */}
