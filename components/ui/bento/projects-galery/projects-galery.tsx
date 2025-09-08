@@ -2,7 +2,6 @@
 
 import { GlassCard } from "@/components/ui/cards/glass-card";
 import { Marquee } from "@/components/ui/magicui/marquee";
-import { ShineBorder } from "@/components/ui/magicui/shine-border";
 import { cn } from "@/lib/utils";
 import { Code } from "lucide-react";
 import { ProjectsBentoCard } from "./projects-bento-card";
@@ -97,12 +96,12 @@ const features = [
         cta: "Learn more",
         className: "col-span-3 lg:col-span-1",
         background: (
-            <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:1000px]">
+            <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:1000px] xl:h-[800px]">
                 <div
                     className="flex flex-row items-center gap-4"
                     style={{
                         transform:
-                            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(10deg) rotateY(-10deg) rotateZ(20deg)"
+                            "translateX(-60px) translateY(0px) translateZ(-100px) rotateX(5deg) rotateY(-10deg) rotateZ(8deg)"
                     }}
                 >
                     <Marquee pauseOnHover vertical className="[--duration:20s]">
@@ -217,6 +216,7 @@ const features = [
         )
     }
 ];
+
 export const ProjectsGalery = () => {
     return (
         <div className="col-start-3 row-start-3 row-span-5 col-span-3 min-h-96 h-full lg:min-h-max lg:col-span-3 lg:row-span-5 lg:col-start-1 lg:row-start-3 animate-fade-in-bounce" style={{ animationDelay: '0.6s' }}>
@@ -225,7 +225,6 @@ export const ProjectsGalery = () => {
                     "py-0 min-h-[500px] h-full lg:h-full lg:min-h-max"
                 )}
             >
-                <ShineBorder duration={20} />
                 {features.map((feature, idx) => (
                     <ProjectsBentoCard key={idx} {...feature} />
                 ))}

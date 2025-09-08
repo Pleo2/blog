@@ -39,7 +39,7 @@ const ProjectsBentoCard = ({
             {...props}
       >
             <div className={cn(
-                  "background-container absolute overflow-hidden",
+                  "background-container absolute overflow-hidden 2xl:h-[800px]",
             )}>
                   {background}
             </div>
