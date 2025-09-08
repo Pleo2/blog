@@ -10,8 +10,10 @@ export const Container_1 = () => {
                 "row-span-6 col-span-2 row-start-1 col-start-1",
                 "sm:col-span-2",
                 "md:col-span-2",
-                "lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:col-span-3 overflow-hidden"
+                "lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:col-span-3 overflow-hidden",
+                "animate-fade-in-bounce"
             )}
+            style={{ animationDelay: '0.2s' }}
         >
             <div
                 className={cn(

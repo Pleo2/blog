@@ -20,7 +20,7 @@ const features = [
 
 export const Setup = () => {
     return (
-        <div className="hidden lg:flex lg:col-start-4 lg:col-span-2 lg:row-span-3">
+        <div className="hidden lg:flex lg:col-start-4 lg:col-span-2 lg:row-span-3 animate-fade-in-bounce" style={{ animationDelay: '0.4s' }}>
             <GlassCard className="p-0 w-full m-0">
                 <CardContent className="p-0 m-0 h-full w-full">
                     {features.map((feature, idx) => (

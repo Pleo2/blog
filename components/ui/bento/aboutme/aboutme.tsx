@@ -5,7 +5,7 @@ import HalftoneWaves from "./halftone-waves";
 
 export const Aboutme = () => {
     return (
-        <div className="relative min-h-64 overflow-hidden rounded-lg col-start-3 row-start-6 col-span-5 lg:min-h-max lg:col-span-2 lg:row-span-3 lg:col-start-6 lg:row-start-1 h-[10rem] lg:h-full">
+        <div className="relative min-h-64 overflow-hidden rounded-lg col-start-3 row-start-6 col-span-5 lg:min-h-max lg:col-span-2 lg:row-span-3 lg:col-start-6 lg:row-start-1 h-[10rem] lg:h-full animate-fade-in-bounce" style={{ animationDelay: '0.1s' }}>
             <HalftoneWaves
             // backgroundColor="#112F64"
             // dotColor="#003F86"

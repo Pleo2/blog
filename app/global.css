@@ -9,6 +9,7 @@
     --color-coral: oklch(0.6 0.2 10);
     --color-mustard: #FFCC43;
     --animate-meteor: meteor 10s ease-in infinite;
+    --animate-fade-in-bounce: fade-in-bounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 
     @keyframes meteor {
         0% {
@@ -23,6 +24,23 @@
         100% {
             transform: rotate(var(--angle)) translateX(-500px);
             opacity: 0;
+        }
+    }
+
+    @keyframes fade-in-bounce {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        50% {
+            opacity: 0.7;
+            transform: scale(0.98);
+        }
+        
+        100% {
+            opacity: 1;
+            transform: scale(1);
         }
     }
 
@@ -368,6 +386,12 @@ table {
     .animate-slide-left-infinite-short {
         animation: slide-left-infinite 40s linear infinite;
         /* Ajusta la duración */
+    }
+
+    /* Animación fade-in-bounce para elementos del grid */
+    .animate-fade-in-bounce {
+        opacity: 0;
+        animation: fade-in-bounce 1.0s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
     }
 
     /* Tu utilidad de pausa, que ya deberías tener */

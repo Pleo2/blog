@@ -66,8 +66,10 @@ export const ContainerBlogPost = () => {
                 "mb-3 col-span-full min-h-64 h-64",
                 "sm:mb-0 sm:col-start-4 sm:row-start-3 sm:row-span-4 sm:col-span-4",
                 "md:col-start-3 md:row-start-6 md:row-span-2 md:col-span-3",
-                "lg:min-h-max lg:h-full lg:col-span-2 lg:row-span-2 lg:col-start-6 lg:row-start-6 lg:justify-center"
+                "lg:min-h-max lg:h-full lg:col-span-2 lg:row-span-2 lg:col-start-6 lg:row-start-6 lg:justify-center",
+                "animate-fade-in-bounce"
             )}
+            style={{ animationDelay: '0.7s' }}
         >
             <GlassCard
                 className={cn(

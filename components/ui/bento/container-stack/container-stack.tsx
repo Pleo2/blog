@@ -7,7 +7,7 @@ import { SlideAll } from "./slide-all";
 
 export const ContainerStack = () => {
     return (
-        <div className="col-start-6 row-start-4 col-span-2 row-span-2 overflow-y-hidden rounded-2xl relative ">
+        <div className="col-start-6 row-start-4 col-span-2 row-span-2 overflow-y-hidden rounded-2xl relative animate-fade-in-bounce" style={{ animationDelay: '0.5s' }}>
             <GlassCard className="flex flex-col gap-2 justify-center">
                 <CardHeader className="flex flex-col items-start lg:px-4 xl:px-6 ">
                     {/* <div className="flex gap-2 justify-center items-center text-white">

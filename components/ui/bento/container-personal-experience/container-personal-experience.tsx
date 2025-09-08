@@ -12,8 +12,10 @@ export const ContainerPersonalExperience = () => {
                 "mb-3 sm:mb-0 col-span-full sm:col-start-1 sm:row-start-2 sm:col-span-2 sm:row-span-1",
                 "md:col-start-3 md:row-start-1 md:col-span-3 md:row-span-2",
                 "lg:col-span-2 lg:row-span-4 lg:col-start-4 lg:row-start-1",
-                "relative before:absolute before:rounded-lg before:bottom-0 before:w-full before:h-16 before:bg-gradient-to-t before:from-[#1349AB] before:z-20 before:to-transparent"
+                "relative before:absolute before:rounded-lg before:bottom-0 before:w-full before:h-16 before:bg-gradient-to-t before:from-[#1349AB] before:z-20 before:to-transparent",
+                "animate-fade-in-bounce"
             )}
+            style={{ animationDelay: '0.3s' }}
         >
             <GlassCard
                 className={cn(

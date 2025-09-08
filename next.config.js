@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // ... otras configuraciones que puedas tener ...
+    reactStrictMode: true,
+    experimental: {
+        suppressHydrationWarning: true,
+    },
     images: {
         domains: ['pub-90297d0da7b2491c8e14926e02ec8e30.r2.dev'],
         remotePatterns: [
