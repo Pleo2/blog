@@ -5,7 +5,7 @@ export const MainHero = () => {
     return (
         <>
             <div className="flex w-max items-center h-max gap-4 justify-start">
-                <h1 className="leading-normal font-medium font-stretch-expanded text-4xl w-full tracking-tighter">
+                <h1 className="leading-normal font-medium font-stretch-expanded text-4xl w-full tracking-tighter animate-fade-in-left">
                     I'm Jose Moreno
                 </h1>
             </div>
