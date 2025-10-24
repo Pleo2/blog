@@ -11,7 +11,7 @@ const features = [
 		name: 'WorkStation or Compu',
 		description: 'Pc MasterRace & Laptop',
 		href: '#',
-		cta: 'Learn more',
+		cta: null,
 		className: 'col-span-3 lg:col-span-2',
 		background: (
 			<AnimatedListShow className='absolute flex top-1 h-[300px] w-full scale-90 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-95' />

@@ -22,18 +22,17 @@ const AllBlogPosts = ({
   posts = [],
 }: AllBlogPostsProps) => {
   return (
-    <div className="max-w-6xl mx-auto pt-16">
-      <div className="space-y-6">
+    <div className="max-w-screen h-4/5 mt-16 rounded-xl ">
+      <div className="space-y-6 h-full overflow-auto rounded-xl">
         {posts.map((post, index) => (
           <div key={post.id} className="group">
             <GlassCard
               className={cn(
-                "relative p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl",
+                "relative p-6 transition-all duration-300 cursor-pointer",
                 "before:content-[''] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-r before:from-blue-500/10 before:to-purple-500/10 before:opacity-0 before:transition-opacity before:duration-300",
                 "group-hover:before:opacity-100"
               )}
             >
-              <BorderBeam duration={12} size={150} />
               
               <article className="relative z-10">
                 <div className="flex items-start justify-between mb-4">

@@ -8,7 +8,7 @@ import type {
     ToolbarProps
 } from "@/components/kokonutui/toolbar.type";
 import { navItems as toolbarItems } from "@/config/navItems";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 // toolbarItems imported desde la configuración
 
@@ -58,12 +58,47 @@ export const ToolbarClient = ({
     activeColor = "text-primary",
     onSearch
 }: ToolbarProps) => {
-    const [selected, setSelected] = React.useState<string | null>("/");
+    const pathname = usePathname();
+    const [selected, setSelected] = React.useState<string | null>(null);
     const [activeNotification, setActiveNotification] = React.useState<
         string | null
     >(null);
 
     const outsideClickRef = React.useRef(null);
+
+    // Determinar el item activo basado en la ruta actual
+    React.useEffect(() => {
+        const getActiveItem = () => {
+            // Si estamos en la raíz, activar home
+            if (pathname === "/") {
+                return "/";
+            }
+            
+            // Si estamos en /blog o /blog/all, activar blog
+            if (pathname.startsWith("/blog")) {
+                return "blog";
+            }
+            
+            // Si estamos en /projects, activar projects
+            if (pathname.startsWith("/projects")) {
+                return "projects";
+            }
+            
+            // Si estamos en /experience, activar experience
+            if (pathname.startsWith("/experience")) {
+                return "experience";
+            }
+            
+            // Si estamos en /setup, activar setup
+            if (pathname.startsWith("/setup")) {
+                return "setup";
+            }
+            
+            return null;
+        };
+
+        setSelected(getActiveItem());
+    }, [pathname]);
 
     const handleItemClick = (itemId: string) => {
         setSelected(selected === itemId ? null : itemId);

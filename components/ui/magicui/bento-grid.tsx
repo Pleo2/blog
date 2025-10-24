@@ -58,7 +58,10 @@ const BentoCard = ({
         {...props}
     >
         <div className="container-background">{background}</div>
-        <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-4 transition-all duration-300 group-hover:-translate-y-10">
+        <div className={cn(
+            "pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-4 transition-all duration-300",
+            cta && "group-hover:-translate-y-10"
+        )}>
             <div className="flex gap-2 items-center">
                 <Icon className="h-4 w-4 origin-left transform-gpu text-[#FBCA1D] transition-all duration-300 ease-in-out group-hover:scale-105" />
                 <h3 className="text-xl font-semibold text-white dark:text-white group-hover:scale-[102%] transition-transform duration-300">
@@ -69,23 +72,25 @@ const BentoCard = ({
             <p className="max-w-lg text-neutral-300">{description}</p>
         </div>
 
-        <div
-            className={cn(
-                "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-            )}
-        >
-            <Button
-                variant="ghost"
-                asChild
-                size="sm"
-                className="pointer-events-auto rounded-full bg-white/10 hover:bg-white/5 transition-colors duration-300"
+        {cta && (
+            <div
+                className={cn(
+                    "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                )}
             >
-                <a href={href}>
-                    {cta}
-                    <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
-                </a>
-            </Button>
-        </div>
+                <Button
+                    variant="ghost"
+                    asChild
+                    size="sm"
+                    className="pointer-events-auto rounded-full bg-white/10 hover:bg-white/5 transition-colors duration-300"
+                >
+                    <a href={href}>
+                        {cta}
+                        <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
+                    </a>
+                </Button>
+            </div>
+        )}
         <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
     </div>
 );
