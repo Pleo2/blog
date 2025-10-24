@@ -63,10 +63,10 @@ export const ContainerBlogPost = () => {
     return (
         <div
             className={cn(
-                "mb-3 col-span-full min-h-64 h-64",
-                "sm:mb-0 sm:col-start-4 sm:row-start-3 sm:row-span-4 sm:col-span-4",
-                "md:col-start-3 md:row-start-6 md:row-span-2 md:col-span-3",
-                "lg:min-h-max lg:h-full lg:col-span-2 lg:row-span-2 lg:col-start-6 lg:row-start-6 lg:justify-center",
+                "mb-3 col-span-full min-h-64 h-full",
+                "sm:mb-0 sm:col-start-4 sm:row-start-3",
+                "md:col-start-3 md:row-start-6 ",
+                "lg:col-start-4 lg:row-start-5 lg:col-span-2 lg:row-span-3",
                 "animate-fade-in-bounce"
             )}
             style={{ animationDelay: '0.7s' }}
@@ -74,7 +74,7 @@ export const ContainerBlogPost = () => {
             <GlassCard
                 className={cn(
                     "min-h-64 h-64 relative p-0 before:content-[''] before:w-full before:h-24 before:blur-2xl transition-transform hover:scale-[1.01] duration-300",
-                    "lg:p-0 lg:m-0 lg:justify-center lg:h-full  lg:min-h-max",
+                    "lg:p-0 lg:m-0 lg:justify-center lg:h-full lg:min-h-max lg:w-full",
                     "xl:p-0 gap-2"
                 )}
             >
