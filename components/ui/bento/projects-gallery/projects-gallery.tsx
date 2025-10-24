@@ -217,7 +217,7 @@ const features = [
     }
 ];
 
-export const ProjectsGalery = () => {
+export const ProjectsGallery = () => {
     return (
         <div className="col-start-3 row-start-3 row-span-5 col-span-3 min-h-96 h-full lg:min-h-max lg:col-span-3 lg:row-span-5 lg:col-start-1 lg:row-start-3 animate-fade-in-bounce" style={{ animationDelay: '0.6s' }}>
             <GlassCard
