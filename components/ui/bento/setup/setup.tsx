@@ -10,7 +10,7 @@ const features = [
 		Icon: PcCase,
 		name: 'WorkStation or Compu',
 		description: 'Pc MasterRace & Laptop',
-		href: '#',
+		href: null,
 		cta: null,
 		className: 'col-span-3 lg:col-span-2',
 		background: (

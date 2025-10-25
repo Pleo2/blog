@@ -92,7 +92,7 @@ const features = [
         name: "Personal Projects",
         description:
             "I have developed a variety of personal projects, including web applications, mobile applications. You can find more information about my profesional projects on my resume.",
-        href: "#",
+        href: "/projects",
         cta: "Learn more",
         className: "col-span-3 lg:col-span-1",
         background: (

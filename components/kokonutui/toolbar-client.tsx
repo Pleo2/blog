@@ -8,7 +8,8 @@ import type {
     ToolbarProps
 } from "@/components/kokonutui/toolbar.type";
 import { navItems as toolbarItems } from "@/config/navItems";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 // toolbarItems imported desde la configuración
 
@@ -106,8 +107,6 @@ export const ToolbarClient = ({
         // setTimeout(() => setActiveNotification(null), 1500);
     };
 
-    const router = useRouter();
-
     return (
         <div className="space-y-2">
             <div
@@ -153,47 +152,49 @@ export const ToolbarClient = ({
 
                 <div className="flex items-center gap-2">
                     {toolbarItems.map((item) => (
-                        <motion.button
+                        <motion.div
                             key={item.id}
                             variants={buttonVariants}
                             initial={false}
                             animate="animate"
                             custom={selected === item.id}
-                            onClick={() => {
-                                handleItemClick(item.id);
-                                router.push(`/${item.id}`);
-                            }}
                             transition={transition}
-                            className={cn(
-                                "relative flex items-center rounded-none px-3 py-2",
-                                "text-sm font-medium transition-colors duration-300 rounded-lg cursor-pointer",
-                                "hover:rounded-lg",
-                                selected === item.id
-                                    ? "bg-white/20 text-white rounded-lg hover:rounded-lg"
-                                    : "text-foreground hover:bg-white/20 hover:text-foreground hover:rounded-lg"
-                            )}
                         >
-                            <item.icon
-                                size={16}
+                            <Link
+                                href={`/${item.id}`}
+                                prefetch={true}
+                                onClick={() => handleItemClick(item.id)}
                                 className={cn(
-                                    selected === item.id && "text-white"
+                                    "relative flex items-center rounded-none px-3 py-2",
+                                    "text-sm font-medium transition-colors duration-300 rounded-lg cursor-pointer",
+                                    "hover:rounded-lg",
+                                    selected === item.id
+                                        ? "bg-white/20 text-white rounded-lg hover:rounded-lg"
+                                        : "text-foreground hover:bg-white/20 hover:text-foreground hover:rounded-lg"
                                 )}
-                            />
-                            <AnimatePresence initial={false}>
-                                {selected === item.id && (
-                                    <motion.span
-                                        variants={spanVariants}
-                                        initial="initial"
-                                        animate="animate"
-                                        exit="exit"
-                                        transition={transition}
-                                        className="overflow-hidden"
-                                    >
-                                        {item.title}
-                                    </motion.span>
-                                )}
-                            </AnimatePresence>
-                        </motion.button>
+                            >
+                                <item.icon
+                                    size={16}
+                                    className={cn(
+                                        selected === item.id && "text-white"
+                                    )}
+                                />
+                                <AnimatePresence initial={false}>
+                                    {selected === item.id && (
+                                        <motion.span
+                                            variants={spanVariants}
+                                            initial="initial"
+                                            animate="animate"
+                                            exit="exit"
+                                            transition={transition}
+                                            className="overflow-hidden"
+                                        >
+                                            {item.title}
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             </div>

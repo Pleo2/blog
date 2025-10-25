@@ -1,6 +1,7 @@
 import type React from "react";
 import { ArrowRightIcon } from "lucide-react";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -16,8 +17,8 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
     background: ReactNode;
     Icon: React.ElementType;
     description: string;
-    href: string;
-    cta: string;
+    href: string | null;
+    cta: string | null;
 }
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
@@ -48,10 +49,10 @@ const BentoCard = ({
         key={name}
         className={cn(
             "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg h-full",
-            // light styles
+        // light styles
             "bg-background",
             "[box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-            // dark styles
+        // dark styles
             "transform-gpu dark:bg-background dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
             className
         )}
@@ -72,7 +73,7 @@ const BentoCard = ({
             <p className="max-w-lg text-neutral-300">{description}</p>
         </div>
 
-        {cta && (
+        {cta && href && (
             <div
                 className={cn(
                     "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
@@ -84,10 +85,10 @@ const BentoCard = ({
                     size="sm"
                     className="pointer-events-auto rounded-full bg-white/10 hover:bg-white/5 transition-colors duration-300"
                 >
-                    <a href={href}>
+                    <Link href={href} prefetch={true}>
                         {cta}
                         <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
-                    </a>
+                    </Link>
                 </Button>
             </div>
         )}

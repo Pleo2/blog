@@ -27,19 +27,15 @@ export default function AllArticlesPage() {
         }));
 
     return (
-        <section
-        className={cn(
-            "w-screen h-max pb-36 flex-col flex px-4 mt-4",
-            "sm:max-w-2xl",
-            "md:h-[100dvh] md:max-w-[98vw]",
-            "lg:max-w-[98vw] lg:pb-32",
-            "xl:pb-36"
-        )}
-    >
-        <MainHero />
-        <AllBlogPosts
-            posts={blogPosts}
-        />
-    </section>
+        <div className="w-full min-h-screen py-8 px-4">
+            <div className="max-w-6xl mx-auto">
+                <MainHero />
+                <div className="mt-12">
+                    <AllBlogPosts
+                        posts={blogPosts}
+                    />
+                </div>
+            </div>
+        </div>
     );
 }

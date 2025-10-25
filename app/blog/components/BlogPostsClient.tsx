@@ -19,6 +19,7 @@ export function BlogPostsClient({
                         key={post.slug}
                         className="group block rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-200 p-5 border border-white/10 shadow-sm"
                         href={href}
+                        prefetch={true}
                     >
                         <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
                             <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums text-xs mb-1 md:mb-0">

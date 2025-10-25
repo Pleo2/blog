@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { GlassCard } from "@/components/ui/cards/glass-card";
 import { BorderBeam } from "@/components/ui/magicui/border-beam";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface Post {
   id: string;
@@ -45,9 +46,9 @@ const AllBlogPosts = ({
                     </div>
                     
                     <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors duration-300">
-                      <a href={post.url} className="hover:underline decoration-blue-400/50">
+                      <Link href={post.url} prefetch={true} className="hover:underline decoration-blue-400/50">
                         {post.title}
-                      </a>
+                      </Link>
                     </h2>
                     
                     <p className="text-white/80 mb-6 leading-relaxed text-lg">
@@ -66,13 +67,14 @@ const AllBlogPosts = ({
                     </div>
                   </div>
                   
-                  <a 
+                  <Link 
                     href={post.url}
+                    prefetch={true}
                     className="ml-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
                     aria-label={`Read more about ${post.title}`}
                   >
                     <ExternalLink className="w-5 h-5" />
-                  </a>
+                  </Link>
                 </div>
               </article>
             </GlassCard>

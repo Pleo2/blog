@@ -91,7 +91,7 @@ export const ContainerBlogPost = () => {
                     }
                     Icon={StarIcon}
                     description={"My Last Post"}
-                    href={""}
+                    href={"/blog"}
                     cta={"Learn more"}
                     key={lastpost.name}
                 />

@@ -47,7 +47,7 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                         height={44}
                         width={44}
                         loading="eager"
-                        className="rounded-lg"
+                        className="rounded-lg aspect-square"
                     />
                     <div className="flex flex-col justify-start items-start">
                         <CardTitle className="text-xl leading-5 font-semibold text-white/80">
@@ -64,7 +64,7 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
             </CardHeader>
 
             <CardContent className="">
-                <div className="flex gap-1">
+                <div className="flex gap-1 flex-wrap">
                     {tags.map((item, index) => (
                         <Badge
                             key={`${index} ${item}`}

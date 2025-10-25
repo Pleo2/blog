@@ -73,15 +73,7 @@ export default function Blog({ params }) {
     const meta = isMeta(post.metadata) ? post.metadata : {};
 
     return (
-        <section
-            className={[
-                "w-screen h-max pb-36 flex-col flex px-4 mt-4",
-                "sm:max-w-2xl",
-                "md:h-[100dvh] md:max-w-[98vw]",
-                "lg:max-w-[98vw] lg:pb-32",
-                "xl:pb-36"
-            ].join(" ")}
-        >
+        <div className="w-full min-h-screen py-8 px-4">
             {/*
               Usar Script para JSON-LD es seguro aquí porque solo se inserta un objeto JSON-LD
               generado por el propio backend, sin interpolar datos de usuario ni contenido externo.
@@ -98,8 +90,8 @@ export default function Blog({ params }) {
                     image: meta.image
                         ? `${baseUrl}${meta.image}`
                         : `/og?title=${encodeURIComponent(
-                              meta.title || ""
-                          )}`,
+                            meta.title || ""
+                        )}`,
                     url: `${baseUrl}/blog/${post.slug}`,
                     author: {
                         "@type": "Person",
@@ -107,29 +99,28 @@ export default function Blog({ params }) {
                     }
                 })}
             </Script>
-            <div className="w-full max-w-4xl mx-auto">
-                <div className="rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md px-6 py-8 md:px-12 md:py-12 flex flex-col  mt-8">
-                    <h1 className="font-extrabold text-3xl md:text-4xl text-white tracking-tight mb-2 drop-shadow-lg">
-                        {meta.title}
-                    </h1>
-                    <div className="flex justify-between items-center text-sm">
-                        <p className="text-sm text-neutral-300 dark:text-neutral-400">
-                            {formatDate(meta.publishedAt || "")}
-                        </p>
+            <div className="max-w-4xl mx-auto">
+                <article className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    {/* Header del artículo */}
+                    <div className="px-6 py-8 md:px-12 md:py-12 border-b border-slate-200 dark:border-slate-700">
+                        <h1 className="font-bold text-3xl md:text-4xl text-slate-900 dark:text-white tracking-tight mb-4">
+                            {meta.title}
+                        </h1>
+                        <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                            <time dateTime={meta.publishedAt}>
+                                {formatDate(meta.publishedAt || "")}
+                            </time>
+                        </div>
                     </div>
-                    <div
-                        className={[
-                            "h-[63dvh] w-full rounded-lg overflow-y-auto",
-                            "sm:mt-4 md:h-[60dvh]",
-                            "md:pb-0 border border-white/10 bg-white/5 shadow-inner"
-                        ].join(" ")}
-                    >
-                        <article className="prose prose-invert max-w-none text-neutral-100 text-base md:text-lg px-2">
+                    
+                    {/* Contenido del artículo */}
+                    <div className="px-6 py-8 md:px-12 md:py-12">
+                        <div className="prose prose-slate dark:prose-invert max-w-none text-base md:text-lg">
                             <CustomMDX source={post.content} />
-                        </article>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
-        </section>
+        </div>
     );
 }

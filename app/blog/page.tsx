@@ -30,24 +30,20 @@ export default function Page() {
         }));
 
     return (
-        <section
-            className={cn(
-                "w-screen h-max pb-36 flex-col flex px-4 mt-4",
-                "sm:max-w-2xl",
-                "md:h-[100dvh] md:max-w-[98vw]",
-                "lg:max-w-[98vw] lg:pb-32",
-                "xl:pb-36"
-            )}
-        >
-            <MainHero />
-            <BlogPages
-                tagline = "Latest Updates"
-                heading = "Blog Posts"
-                description = "Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights."
-                buttonText = "View all articles"
-                buttonUrl = "/blog/all"
-                posts={blogPosts}
-            />
-        </section>
+        <div className="w-full min-h-screen py-8 px-4">
+            <div className="max-w-6xl mx-auto">
+                <MainHero />
+                <div className="mt-12">
+                    <BlogPages
+                        tagline="Latest Updates"
+                        heading="Blog Posts"
+                        description="Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights."
+                        buttonText="View all articles"
+                        buttonUrl="/blog/all"
+                        posts={blogPosts}
+                    />
+                </div>
+            </div>
+        </div>
     );
 }

@@ -85,7 +85,7 @@ const BlogPages = ({
             {description}
           </p>
           <Button variant="link" className="w-full sm:w-auto" asChild>
-            <Link href={"/blog/all"}>
+            <Link href={"/blog/all"} prefetch={true}>
               {buttonText}
               <ArrowRight className="ml-2 size-4" />
             </Link>
@@ -98,9 +98,8 @@ const BlogPages = ({
               className="grid grid-rows-[auto_auto_1fr_auto] pt-0"
             >
               <div className="aspect-16/9 w-full">
-                <a
+                <Link
                   href={post.url}
-                  target="_blank"
                   className="fade-in transition-opacity duration-200 hover:opacity-70"
                 >
                   <img
@@ -108,27 +107,27 @@ const BlogPages = ({
                     alt={post.title}
                     className="h-full w-full object-cover object-center"
                   />
-                </a>
+                </Link>
               </div>
               <CardHeader>
                 <h3 className="text-lg font-semibold hover:underline md:text-xl">
-                  <a href={post.url} target="_blank">
+                  <Link href={post.url}>
                     {post.title}
-                  </a>
+                  </Link>
                 </h3>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{post.summary}</p>
               </CardContent>
               <CardFooter>
-                <a
+                <Link
                   href={post.url}
-                  target="_blank"
+                  prefetch={true}
                   className="text-foreground flex items-center hover:underline"
                 >
                   Read more
                   <ArrowRight className="ml-2 size-4" />
-                </a>
+                </Link>
               </CardFooter>
             </Card>
           ))}
