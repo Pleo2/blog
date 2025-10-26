@@ -141,6 +141,7 @@ export default function AnimatedListShow({
         <div
             className={cn(
                 "relative flex h-[500px] w-full flex-col overflow-hidden",
+                "absolute flex top-1 h-[300px] w-full scale-90 border-none ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]",
                 className
             )}
         >

@@ -4,6 +4,8 @@ import { BentoCard } from '@/components/ui/magicui/bento-grid';
 import { CardContent } from '@/components/ui/card';
 import { PcCase } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {ComponentPropsWithoutRef, ReactNode} from "react";
+import type {IconName} from "lucide-react/dynamic";
 
 const features = [
 	{
@@ -14,12 +16,23 @@ const features = [
 		cta: null,
 		className: 'col-span-3 lg:col-span-2',
 		background: (
-			<AnimatedListShow className='absolute flex top-1 h-[300px] w-full scale-90 border-none ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]' />
+			<AnimatedListShow />
 		)
 	}
 ];
 
-export const Setup = () => {
+interface ContainerSetupCardProps extends ComponentPropsWithoutRef<"div"> {
+    name: string;
+    className: string;
+    background: ReactNode;
+    icon: IconName;
+    description: string;
+    href: string;
+    cta: string;
+}
+
+
+export const ContainerSetup = (props: ContainerSetupCardProps) => {
 	return (
 		<div
 			className={cn(
@@ -29,9 +42,7 @@ export const Setup = () => {
 		>
 			<GlassCard className='p-0 w-full m-0'>
 				<CardContent className='p-0 m-0 h-full w-full'>
-					{features.map((feature, idx) => (
-						<BentoCard key={idx} {...feature} />
-					))}
+						<BentoCard {...props} />
 				</CardContent>
 			</GlassCard>
 		</div>

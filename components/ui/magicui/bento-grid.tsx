@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import {DynamicIcon, type IconName} from "lucide-react/dynamic";
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
     children: ReactNode;
@@ -15,7 +16,7 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
     name: string;
     className: string;
     background: ReactNode;
-    Icon: React.ElementType;
+    icon: IconName;
     description: string;
     href: string | null;
     cta: string | null;
@@ -39,7 +40,7 @@ const BentoCard = ({
     name,
     className,
     background,
-    Icon,
+    icon,
     description,
     href,
     cta,
@@ -59,12 +60,16 @@ const BentoCard = ({
         {...props}
     >
         <div className="container-background">{background}</div>
+
+        {/* Gradiente overlay */}
+        <div className="absolute bottom-0 w-full opacity-50 h-56 z-[1] bg-gradient-to-t from-[#011949] via-60%-[#011949] to-transparent"></div>
+
         <div className={cn(
             "pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-4 transition-all duration-300",
             cta && "group-hover:-translate-y-10"
         )}>
             <div className="flex gap-2 items-center">
-                <Icon className="h-4 w-4 origin-left transform-gpu text-[#FBCA1D] transition-all duration-300 ease-in-out group-hover:scale-105" />
+                <DynamicIcon name={icon} className="h-4 w-4 origin-left transform-gpu text-[#FBCA1D] transition-all duration-300 ease-in-out group-hover:scale-105" />
                 <h3 className="text-xl font-semibold text-white dark:text-white group-hover:scale-[102%] transition-transform duration-300">
                     {name}
                 </h3>
@@ -74,7 +79,7 @@ const BentoCard = ({
         </div>
 
 
-        <div
+        {href && cta && <div
             className={cn(
                 "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
             )}
@@ -87,10 +92,10 @@ const BentoCard = ({
             >
                 <Link href={href ?? ""} prefetch={true}>
                     {cta}
-                    <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
+                    <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180"/>
                 </Link>
             </Button>
-        </div>
+        </div>}
 
         <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
     </div>

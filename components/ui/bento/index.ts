@@ -5,6 +5,6 @@ export { Container_1 } from "./container-1/container-1";
 export { ContainerBlogPost } from "./container-blog-post/container-blog-post";
 export { ContainerPersonalExperience } from "./container-personal-experience/container-personal-experience";
 export { ContainerStack } from "./container-stack/container-stack";
-export { ProjectsGallery } from "./projects-gallery/projects-gallery";
-export { Setup } from "./setup/setup";
+export { ContainerProjectsGallery } from "./projects-gallery/container-projects-gallery";
+export { ContainerSetup } from "./setup/container-setup";
 export { WakatimeHours } from "./wakatimehours";

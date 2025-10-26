@@ -5,12 +5,14 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import {IconName} from "lucide-react/dynamic";
+import {DynamicIcon} from "lucide-react/dynamic";
 
 interface ProjectsBentoCardProps extends ComponentPropsWithoutRef<"div"> {
       name: string;
       className: string;
       background: ReactNode;
-      Icon: React.ElementType;
+      icon: IconName;
       description: string;
       href: string;
       cta: string;
@@ -20,7 +22,7 @@ const ProjectsBentoCard = ({
       name,
       className,
       background,
-      Icon,
+      icon,
       description,
       href,
       cta,
@@ -31,7 +33,7 @@ const ProjectsBentoCard = ({
             className={cn(
                   "group col-span-3 relative flex flex-col justify-between overflow-hidden rounded-lg h-full",
             // light styles
-                  "bg-background",
+                  "bg-background ",
                   "[box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
             // dark styles
                   "transform-gpu dark:bg-background dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
@@ -44,13 +46,14 @@ const ProjectsBentoCard = ({
             )}>
                   {background}
             </div>
+
             <div className="absolute bottom-0 w-full h-56 z-[1] bg-gradient-to-t from-[#011949] via-60%-[#011949] to-transparent"></div>
 
             <div className="pointer-events-none z-10 flex transform-gpu flex-col absolute bottom-0 gap-1 p-4 transition-all duration-300 group-hover:-translate-y-10">
                   <div className={cn(
                         "flex gap-2 items-center ",
                   )}>
-                        <Icon className="h-4 w-4 origin-left transform-gpu text-[#FBCA1D] transition-all duration-300 ease-in-out group-hover:scale-105" />
+                        <DynamicIcon name={icon} className="h-4 w-4 origin-left transform-gpu text-[#FBCA1D] transition-all duration-300 ease-in-out group-hover:scale-105" />
                         <h3 className="text-xl font-semibold text-white dark:text-white group-hover:scale-[102%] transition-transform duration-300">
                               {name}
                         </h3>

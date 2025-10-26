@@ -1,7 +1,6 @@
 import { GlassCard } from '@/components/ui/cards/glass-card';
 import { CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { PocketKnife } from 'lucide-react';
 import { SlideFront } from './slide-front';
 import { SlideBackend } from './slide-backend';
 import { SlideAll } from './slide-all';

@@ -1,9 +1,8 @@
-import { GlassCard } from '@/components/ui/cards/glass-card';
-import { CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Briefcase, Calendar, MousePointer2, ArrowDown, Mouse } from 'lucide-react';
-import Image from 'next/image';
-import { PersonalExperienceCard } from './personal-experience-card';
-import { cn } from '@/lib/utils';
+import {GlassCard} from '@/components/ui/cards/glass-card';
+import {CardHeader, CardTitle, CardContent} from '@/components/ui/card';
+import {Briefcase, ArrowDown, Mouse} from 'lucide-react';
+import {PersonalExperienceCard} from './personal-experience-card';
+import {cn} from '@/lib/utils';
 
 export const ContainerPersonalExperience = () => {
     return (
@@ -15,7 +14,7 @@ export const ContainerPersonalExperience = () => {
                 'relative before:absolute before:rounded-lg before:bottom-0 before:w-full before:h-16 before:bg-gradient-to-t before:from-[#1349AB] before:z-20 before:to-transparent',
                 'animate-fade-in-bounce'
             )}
-            style={{ animationDelay: '0.3s' }}
+            style={{animationDelay: '0.3s'}}
         >
             <GlassCard
                 className={cn(
@@ -26,9 +25,9 @@ export const ContainerPersonalExperience = () => {
             >
                 <CardHeader className='w-full flex-col items-start z-10 lg:hidden xl:flex xl:px-4 '>
                     <div className={cn('relative flex gap-1 justify-center items-center text-white')}>
-                        <Briefcase className={cn('w-4')} />
+                        <Briefcase className={cn('w-4')}/>
                         <CardTitle className={cn('text-base')}>Professional Experiences</CardTitle>
-                        
+
                     </div>
                 </CardHeader>
                 <CardContent
@@ -39,10 +38,11 @@ export const ContainerPersonalExperience = () => {
                     )}
                 >
                     {/* Indicador de scroll con mouse y flecha */}
-                    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center gap-1 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                    <div
+                        className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center gap-1 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="flex flex-col items-center gap-1">
-                            <Mouse className="w-4 h-4 text-white animate-bounce" />
-                            <ArrowDown className="w-3 h-3 text-white animate-bounce" />
+                            <Mouse className="w-4 h-4 text-white animate-bounce"/>
+                            <ArrowDown className="w-3 h-3 text-white animate-bounce"/>
                         </div>
                     </div>
                     <PersonalExperienceCard

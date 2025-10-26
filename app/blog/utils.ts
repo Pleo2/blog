@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import matter from "gray-matter";
 
 type Metadata = {
     title: string;
@@ -8,11 +9,18 @@ type Metadata = {
     image?: string;
     tags?: string[];
 };
+export type BlogPostFrontmatter = {
+    title?: string;
+    publishedAt?: string;
+    summary?: string;
+    tags?: string[];
+    content?: string;
+};
 
 function parseFrontmatter(fileContent: string): { metadata: Partial<Metadata>; content: string } {
     const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
     const match = frontmatterRegex.exec(fileContent);
-    if (!match) return { metadata: {}, content: fileContent };
+    if (!match) return {metadata: {}, content: fileContent};
     const frontMatterBlock = match[1];
     const content = fileContent.replace(frontmatterRegex, "").trim();
     const frontMatterLines = frontMatterBlock.trim().split("\n");
@@ -40,7 +48,7 @@ function parseFrontmatter(fileContent: string): { metadata: Partial<Metadata>; c
                 while (
                     j < frontMatterLines.length &&
                     frontMatterLines[j].trim().startsWith("-")
-                ) {
+                    ) {
                     tags.push(frontMatterLines[j].replace("-", "").trim());
                     j++;
                 }
@@ -63,7 +71,7 @@ function parseFrontmatter(fileContent: string): { metadata: Partial<Metadata>; c
         }
     }
 
-    return { metadata: metadata as Metadata, content };
+    return {metadata: metadata as Metadata, content};
 }
 
 function getMDXFiles(dir) {
@@ -78,7 +86,7 @@ function readMDXFile(filePath) {
 function getMDXData(dir) {
     const mdxFiles = getMDXFiles(dir);
     return mdxFiles.map((file) => {
-        const { metadata, content } = readMDXFile(path.join(dir, file));
+        const {metadata, content} = readMDXFile(path.join(dir, file));
         const slug = path.basename(file, path.extname(file));
 
         return {
@@ -129,3 +137,79 @@ export function formatDate(date: string, includeRelative = false) {
 
     return `${fullDate} (${formattedDate})`;
 }
+
+export function getLatestPost(): (BlogPostFrontmatter & { content: string }) | null {
+    const postsDir = path.join(process.cwd(), "app/blog/posts");
+    const files = fs
+        .readdirSync(postsDir)
+        .filter((file) => file.endsWith(".mdx"))
+        .map((file) => ({
+            file,
+            fullPath: path.join(postsDir, file),
+            stat: fs.statSync(path.join(postsDir, file))
+        }))
+        .sort((a, b) => b.stat.mtimeMs - a.stat.mtimeMs);
+    if (files.length === 0) return null;
+    const latest = files[0];
+    const source = fs.readFileSync(latest.fullPath, "utf8");
+    const {data, content} = matter(source);
+    return {
+        ...data,
+        content
+    };
+}
+
+export function extractImagesFromContent(content: string): string[] {
+    // Buscar imágenes en el contenido del MDX
+    const imageRegex = /!\[.*?\]\((.*?)\)/g;
+    const images: string[] = [];
+    let match;
+
+    while ((match = imageRegex.exec(content)) !== null) {
+        if (match[1] && !match[1].startsWith('http')) {
+            images.push(match[1]);
+        }
+    }
+
+    // Imágenes por defecto para la preview
+    const defaultImages = ["/working.webp", "/wallpaper.webp", "/working.webp"];
+
+    // Si no se encuentran imágenes en el contenido, usar imágenes por defecto
+    if (images.length === 0) {
+        return defaultImages;
+    }
+
+    // Tomar las primeras 3 imágenes encontradas, rellenar con imágenes por defecto si es necesario
+    const result = images.slice(0, 3);
+    while (result.length < 3) {
+        result.push(defaultImages[result.length % defaultImages.length]);
+    }
+
+    return result;
+}
+
+export const blogPosts = getBlogPosts()
+    .sort((a, b) => {
+        const aDate = a.metadata.publishedAt ? new Date(a.metadata.publishedAt) : new Date(0);
+        const bDate = b.metadata.publishedAt ? new Date(b.metadata.publishedAt) : new Date(0);
+        return bDate.getTime() - aDate.getTime();
+    })
+    .slice(0, 6) // Limitar a 6 posts
+    .map((post) => ({
+        id: post.slug,
+        title: post.metadata.title || "Sin título",
+        summary: post.metadata.summary || "Sin resumen disponible",
+        label: Array.isArray(post.metadata.tags) ? post.metadata.tags : [],
+        author: "Tu nombre", // Puedes personalizar esto
+        published: post.metadata.publishedAt ? formatDate(post.metadata.publishedAt) : "Sin fecha",
+        url: `/blog/${post.slug}`,
+        image: post.metadata.image || "/working.webp" // Imagen por defecto
+    }));
+
+export const stackPosts = getBlogPosts()
+    .sort((a, b) => {
+        const aDate = a.metadata.publishedAt ? new Date(a.metadata.publishedAt) : new Date(0);
+        const bDate = b.metadata.publishedAt ? new Date(b.metadata.publishedAt) : new Date(0);
+        return bDate.getTime() - aDate.getTime();
+    })
+    .slice(0, 4); // Limitar a 4 posts para el stack
