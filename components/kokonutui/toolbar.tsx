@@ -3,20 +3,8 @@ import {
     type ToolbarItem,
     type ToolbarProps
 } from "@/components/kokonutui/toolbar.type";
-import {
-    BriefcaseBusiness,
-    FileCode2,
-    FileText,
-    Home,
-    Laptop,
-} from "lucide-react";
-const toolbarItems: ToolbarItem[] = [
-    { id: "/", title: "Home", icon: Home },
-    { id: "experience", title: "Experience", icon: BriefcaseBusiness },
-    { id: "blog", title: "Blog", icon: FileText },
-    { id: "setup", title: "Setup", icon: Laptop },
-    { id: "projects", title: "Projects", icon: FileCode2 }
-];
+import { navItems } from "./navItems";
+const toolbarItems: ToolbarItem[] = navItems;
 
 export const Toolbar = ({
     className,
@@ -27,7 +15,7 @@ export const Toolbar = ({
         <div className="space-y-2">
             <div
                 className={cn(
-                    "flex items-center gap-3 p-4 relative",
+                    "flex items-center gap-2 p-4 relative",
                     "bg-white/10", // rgba(255, 255, 255, 0.3)
                     "backdrop-blur-[7.5px]",
                     "shadow-[0_8px_32px_0_rgba(0,0,0,0.18)]",

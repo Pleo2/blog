@@ -15,6 +15,7 @@ type BlogPostFrontmatter = {
     publishedAt?: string;
     summary?: string;
     tags?: string[];
+    content?: string;
     // Puedes agregar más campos si los usas en el frontmatter
 };
 
@@ -51,6 +52,35 @@ function getLatestPost(): (BlogPostFrontmatter & { content: string }) | null {
     };
 }
 
+function extractImagesFromContent(content: string): string[] {
+    // Buscar imágenes en el contenido del MDX
+    const imageRegex = /!\[.*?\]\((.*?)\)/g;
+    const images: string[] = [];
+    let match;
+
+    while ((match = imageRegex.exec(content)) !== null) {
+        if (match[1] && !match[1].startsWith('http')) {
+            images.push(match[1]);
+        }
+    }
+
+    // Imágenes por defecto para la preview
+    const defaultImages = ["/working.webp", "/wallpaper.webp", "/working.webp"];
+
+    // Si no se encuentran imágenes en el contenido, usar imágenes por defecto
+    if (images.length === 0) {
+        return defaultImages;
+    }
+
+    // Tomar las primeras 3 imágenes encontradas, rellenar con imágenes por defecto si es necesario
+    const result = images.slice(0, 3);
+    while (result.length < 3) {
+        result.push(defaultImages[result.length % defaultImages.length]);
+    }
+
+    return result;
+}
+
 export const ContainerBlogPost = () => {
     const post = getLatestPost();
     if (!post) return null;
@@ -59,6 +89,7 @@ export const ContainerBlogPost = () => {
     const title = typeof post.title === "string" ? post.title : "Untitled";
     const summary = typeof post.summary === "string" ? post.summary : "";
     const tags = Array.isArray(post.tags) ? post.tags : [];
+    const content = typeof post.content === "string" ? post.content : "";
 
     return (
         <div
@@ -87,6 +118,7 @@ export const ContainerBlogPost = () => {
                             publishedAt={publishedAt}
                             summary={summary}
                             tags={tags}
+                            content={content}
                         />
                     }
                     Icon={StarIcon}
@@ -105,8 +137,12 @@ export function BuildFeaturedBlogPost({
     title = "Untitled",
     publishedAt = "",
     summary = "",
-    tags = []
+    tags = [],
+    content = ""
 }: BlogPostFrontmatter) {
+    // Extraer imágenes del contenido del post
+    const previewImages = extractImagesFromContent(content);
+
     return (
         <GlassCard
             className={cn(
@@ -134,6 +170,21 @@ export function BuildFeaturedBlogPost({
                     ))}
                 </div>
             </CardHeader>
+
+            {/* Grid de 3 imágenes en formato cuadrado */}
+            <div className="grid grid-cols-3 gap-1 mt-2 mb-2 group-hover:opacity-20 transition-opacity duration-300">
+                {previewImages.map((image, index) => (
+                    <div key={index} className="aspect-square w-full overflow-hidden rounded-md bg-white/10">
+                        <img
+                            src={image}
+                            alt={`Preview ${index + 1}`}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                        />
+                    </div>
+                ))}
+            </div>
+
             <CardContent className="p-0 group-hover:opacity-20 transition-opacity duration-300">
                 <p className="text-sm sm:text-xs md:text-sm text-white/70 line-clamp-4 w-full overflow-hidden  lg:line-clamp-3 xl:line-clamp-4 2xl:line-clamp-5">
                     {summary}

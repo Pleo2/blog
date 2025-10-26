@@ -7,11 +7,9 @@ import type {
     ToolbarItem,
     ToolbarProps
 } from "@/components/kokonutui/toolbar.type";
-import { navItems as toolbarItems } from "@/config/navItems";
+import { navItems as toolbarItems } from "@/components/kokonutui/navItems";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
-// toolbarItems imported desde la configuración
 
 const buttonVariants = {
     initial: {
@@ -19,11 +17,16 @@ const buttonVariants = {
         paddingLeft: ".5rem",
         paddingRight: ".5rem"
     },
-    animate: (isSelected: boolean) => ({
-        gap: isSelected ? ".5rem" : 0,
-        paddingLeft: isSelected ? "1rem" : ".5rem",
-        paddingRight: isSelected ? "1rem" : ".5rem"
-    })
+    animate: {
+        gap: ".5rem",
+        paddingLeft: "1rem",
+        paddingRight: "1rem"
+    },
+    inactive: {
+        gap: 0,
+        paddingLeft: ".5rem",
+        paddingRight: ".5rem"
+    }
 };
 
 const spanVariants = {
@@ -74,27 +77,27 @@ export const ToolbarClient = ({
             if (pathname === "/") {
                 return "/";
             }
-            
+
             // Si estamos en /blog o /blog/all, activar blog
             if (pathname.startsWith("/blog")) {
                 return "blog";
             }
-            
+
             // Si estamos en /projects, activar projects
             if (pathname.startsWith("/projects")) {
                 return "projects";
             }
-            
+
             // Si estamos en /experience, activar experience
             if (pathname.startsWith("/experience")) {
                 return "experience";
             }
-            
+
             // Si estamos en /setup, activar setup
             if (pathname.startsWith("/setup")) {
                 return "setup";
             }
-            
+
             return null;
         };
 
@@ -155,9 +158,8 @@ export const ToolbarClient = ({
                         <motion.div
                             key={item.id}
                             variants={buttonVariants}
-                            initial={false}
-                            animate="animate"
-                            custom={selected === item.id}
+                            initial="initial"
+                            animate={selected === item.id ? "animate" : "inactive"}
                             transition={transition}
                         >
                             <Link
@@ -165,7 +167,7 @@ export const ToolbarClient = ({
                                 prefetch={true}
                                 onClick={() => handleItemClick(item.id)}
                                 className={cn(
-                                    "relative flex items-center rounded-none px-3 py-2",
+                                    "relative flex items-center rounded-none gap-2 px-3 py-2",
                                     "text-sm font-medium transition-colors duration-300 rounded-lg cursor-pointer",
                                     "hover:rounded-lg",
                                     selected === item.id
