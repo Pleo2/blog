@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import type { BlogPostMeta } from "./BlogPosts";
+import type { BlogPostMeta } from "./blog-posts";
 
 export function BlogPostsClient({
     posts

@@ -1,14 +1,6 @@
+import React from "react";
 import { ArrowRight } from "lucide-react";
-
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
 
 interface Post {
   id: string;
@@ -35,102 +27,58 @@ const BlogPages = ({
   heading = "Blog Posts",
   description = "Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights.",
   buttonText = "View all articles",
-  posts = [
-    {
-      id: "post-1",
-      title: "Getting Started with shadcn/ui Components",
-      summary:
-        "Learn how to quickly integrate and customize shadcn/ui components in your Next.js projects. We'll cover installation, theming, and best practices for building modern interfaces.",
-      label: "Tutorial",
-      author: "Sarah Chen",
-      published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
-    },
-    {
-      id: "post-2",
-      title: "Building Accessible Web Applications",
-      summary:
-        "Explore how to create inclusive web experiences using shadcn/ui's accessible components. Discover practical tips for implementing ARIA labels, keyboard navigation, and semantic HTML.",
-      label: "Accessibility",
-      author: "Marcus Rodriguez",
-      published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
-    },
-    {
-      id: "post-3",
-      title: "Modern Design Systems with Tailwind CSS",
-      summary:
-        "Dive into creating scalable design systems using Tailwind CSS and shadcn/ui. Learn how to maintain consistency while building flexible and maintainable component libraries.",
-      label: "Design Systems",
-      author: "Emma Thompson",
-      published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
-    },
-  ],
+  posts = []
 }: BlogPagesProps) => {
   return (
-    <section className="pt-14">
-      <div className="container mx-auto flex flex-col items-center gap-16 lg:px-16">
-        <div className="text-center">
-          <Badge variant="secondary" className="mb-6">
-            {tagline}
-          </Badge>
-          <h2 className="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
-            {heading}
-          </h2>
-          <p className="text-muted-foreground mb-8 md:text-base lg:max-w-2xl lg:text-lg">
-            {description}
-          </p>
-          <Button variant="link" className="w-full sm:w-auto" asChild>
-            <Link href={"/blog/all"} prefetch={true}>
-              {buttonText}
-              <ArrowRight className="ml-2 size-4" />
-            </Link>
-          </Button>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {posts.map((post) => (
-            <Card
-              key={post.id}
-              className="grid grid-rows-[auto_auto_1fr_auto] pt-0"
-            >
-              <div className="aspect-16/9 w-full">
-                <Link
-                  href={post.url}
-                  className="fade-in transition-opacity duration-200 hover:opacity-70"
-                >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </Link>
+    <section className="w-full h-max">
+      <div className="container h-max w-full">
+        <div className="w-full">
+          <div className="space-y-8">
+            {posts.map((post, idx) => (
+              <div
+                key={post.id}
+                className="border-border border-b pb-6 last:border-b-0"
+              >
+                <div className="flex flex-col gap-4 md:flex-row md:items-start">
+                  <div className="md:w-2/3">
+                    <div className="mb-2 flex items-center gap-3">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="h-5 w-5 object-cover rounded"
+                      />
+                      <h3 className="text-xl">
+                        <Link
+                          href={post.url}
+                          className="hover:underline"
+                        >
+                          {post.title}
+                        </Link>
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground mb-3 text-sm">
+                      {post.author} • {post.published}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {post.summary}
+                    </p>
+                  </div>
+                  <div className="text-right md:w-1/3 md:text-right">
+                    <p className="mb-1 text-sm font-medium">{post.published}</p>
+                    <p className="text-muted-foreground text-sm">{post.label}</p>
+                    <Link
+                      href={post.url}
+                      prefetch={true}
+                      className="text-foreground flex items-center justify-end hover:underline mt-2"
+                    >
+                      Read more
+                      <ArrowRight className="ml-2 size-4" />
+                    </Link>
+                  </div>
+                </div>
               </div>
-              <CardHeader>
-                <h3 className="text-lg font-semibold hover:underline md:text-xl">
-                  <Link href={post.url}>
-                    {post.title}
-                  </Link>
-                </h3>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{post.summary}</p>
-              </CardContent>
-              <CardFooter>
-                <Link
-                  href={post.url}
-                  prefetch={true}
-                  className="text-foreground flex items-center hover:underline"
-                >
-                  Read more
-                  <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </CardFooter>
-            </Card>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -118,7 +118,7 @@ export const ToolbarClient = ({
             <div
                 ref={outsideClickRef}
                 className={cn(
-                    "flex items-center gap-3 p-4 relative",
+                    "flex items-center py-4 relative",
                     "bg-white/10", // rgba(255, 255, 255, 0.3)
                     "backdrop-blur-[7.5px]",
                     "shadow-[0_8px_32px_0_rgba(0,0,0,0.18)]",

@@ -115,10 +115,10 @@ export const ContainerBlogPost = () => {
                 </div>
 
                 {/* Gradiente overlay */}
-                <div className="absolute bottom-0 w-full h-56 z-[1] bg-gradient-to-t from-[#011949] via-60%-[#011949] to-transparent"></div>
+                <div className="absolute bottom-0 w-full h-full z-10 bg-gradient-to-t from-[#011949] via-90%-[#011949] to-transparent"></div>
 
                 {/* Contenido del overlay */}
-                <div className="pointer-events-none z-10 flex transform-gpu flex-col absolute bottom-0 gap-1 p-4 transition-all duration-300 ease-in-out group-hover:-translate-y-10">
+                <div className="pointer-events-none z-10 flex transform-gpu flex-col absolute bottom-0 gap-1 p-4 pb-8 transition-all duration-300 ease-in-out group-hover:-translate-y-10">
                     <div className={cn(
                         "flex gap-2 items-center ",
                     )}>
@@ -133,7 +133,7 @@ export const ContainerBlogPost = () => {
 
                 <div
                     className={cn(
-                        "pointer-events-none absolute bottom-0 z-10 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                        "pointer-events-none absolute bottom-0 z-10 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 pb-8 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
                     )}
                 >
                     <Button

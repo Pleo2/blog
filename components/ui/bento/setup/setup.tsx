@@ -2,7 +2,7 @@ import { GlassCard } from '@/components/ui/cards/glass-card';
 import AnimatedListShow from '@/components/ui/magicui/animated-list-show';
 import { BentoCard } from '@/components/ui/magicui/bento-grid';
 import { CardContent } from '@/components/ui/card';
-import { BellIcon, PcCase } from 'lucide-react';
+import { PcCase } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const features = [
@@ -25,7 +25,7 @@ export const Setup = () => {
 			className={cn(
 				'hidden lg:flex lg:col-start-6 lg:col-span-2 lg:row-span-2',
 			)}
-			style={{ animationDelay: '0.4s' }}
+			style={{ animationDelay: '0.5s' }}
 		>
 			<GlassCard className='p-0 w-full m-0'>
 				<CardContent className='p-0 m-0 h-full w-full'>

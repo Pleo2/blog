@@ -3,6 +3,7 @@ import { BlogPages } from "@/components/ui/blog-pages";
 import { getBlogPosts } from "./utils";
 import { formatDate } from "./utils";
 import { cn } from "@/lib/utils";
+import { BestBlogPost } from './components/best-blog-post';
 
 export const metadata = {
     title: "Blog",
@@ -10,7 +11,16 @@ export const metadata = {
 };
 
 export default function Page() {
-    // Obtener los posts del blog
+    // Obtener los posts del blog para el stack de tarjetas
+    const stackPosts = getBlogPosts()
+        .sort((a, b) => {
+            const aDate = a.metadata.publishedAt ? new Date(a.metadata.publishedAt) : new Date(0);
+            const bDate = b.metadata.publishedAt ? new Date(b.metadata.publishedAt) : new Date(0);
+            return bDate.getTime() - aDate.getTime();
+        })
+        .slice(0, 4); // Limitar a 4 posts para el stack
+
+    // Obtener los posts del blog para la lista
     const blogPosts = getBlogPosts()
         .sort((a, b) => {
             const aDate = a.metadata.publishedAt ? new Date(a.metadata.publishedAt) : new Date(0);
@@ -30,19 +40,20 @@ export default function Page() {
         }));
 
     return (
-        <div className="w-full min-h-screen py-8 px-4">
-            <div className="max-w-6xl mx-auto">
-                <MainHero />
-                <div className="mt-12">
-                    <BlogPages
-                        tagline="Latest Updates"
-                        heading="Blog Posts"
-                        description="Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights."
-                        buttonText="View all articles"
-                        buttonUrl="/blog/all"
-                        posts={blogPosts}
-                    />
-                </div>
+        <div className="w-full h-max mt-12">
+            <div className="w-full h-[80vh] ">
+                <BestBlogPost posts={stackPosts} />
+            </div>
+
+            <div className="w-full mx-auto flex">
+                <BlogPages
+                    tagline="Latest Updates"
+                    heading="Blog Posts"
+                    description="Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights."
+                    buttonText="View all articles"
+                    buttonUrl="/blog/all"
+                    posts={blogPosts}
+                />
             </div>
         </div>
     );

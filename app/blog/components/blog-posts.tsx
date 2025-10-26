@@ -1,4 +1,4 @@
-import { BlogPostsClient } from "./BlogPostsClient";
+import { BlogPostsClient } from "./blog-posts-client";
 import { formatDate, getBlogPosts } from "../utils";
 import { Badge } from "@/components/ui/badge";
 
