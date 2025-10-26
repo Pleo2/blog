@@ -9,8 +9,8 @@
     "@radix-ui/react-slot": "^1.2.2",
     "@tailwindcss/postcss": "4.0.0-alpha.13",
     "@types/node": "20.11.17",
-    "@types/react": "18.2.55",
-    "@types/react-dom": "18.2.19",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
     "class-variance-authority": "^0.7.1",
@@ -21,11 +21,12 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.507.0",
     "motion": "^12.11.4",
-    "next": "15.3.2",
+    "next": "16.0.0",
+    "next-devtools-mcp": "^0.2.1",
     "next-mdx-remote": "^4.4.1",
     "postcss": "^8.4.35",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "sugar-high": "^0.6.0",
     "tailwind-merge": "^3.2.0",
     "tailwindcss": "4.0.0-alpha.13",
@@ -37,5 +38,12 @@
       "@vercel/speed-insights",
       "sharp"
     ]
+  },
+  "overrides": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2"
+  },
+  "devDependencies": {
+    "babel-plugin-react-compiler": "^1.0.0"
   }
 }

@@ -96,7 +96,7 @@ const features = [
         cta: "Learn more",
         className: "col-span-3 lg:col-span-1",
         background: (
-            <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:1000px] xl:h-[800px]">
+            <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden xl:h-[800px]">
                 <div
                     className="flex flex-row items-center gap-4"
                     style={{

@@ -46,7 +46,7 @@ export default function RootLayout({
             lang="en"
             className={cx("", GeistSans.variable, GeistMono.variable)}
         >
-            <body suppressHydrationWarning={true}>
+            <body>
                 {children}
                 <Analytics />
                 <SpeedInsights />

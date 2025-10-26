@@ -29,6 +29,15 @@ const buttonVariants = {
     }
 };
 
+// Memoizar transición para mejor rendimiento
+const transition = {
+    type: "spring",
+    bounce: 0,
+    duration: 0.3, // Reducir duración
+    stiffness: 300,
+    damping: 30
+};
+
 const spanVariants = {
     initial: { width: 0, opacity: 0 },
     animate: { width: "auto", opacity: 1 },
@@ -55,7 +64,7 @@ const lineVariants = {
     }
 };
 
-const transition = { type: "spring", bounce: 0, duration: 0.4 };
+// Removido - ya definido arriba
 
 export const ToolbarClient = ({
     className,
@@ -70,30 +79,24 @@ export const ToolbarClient = ({
 
     const outsideClickRef = React.useRef(null);
 
-    // Determinar el item activo basado en la ruta actual
     React.useEffect(() => {
         const getActiveItem = () => {
-            // Si estamos en la raíz, activar home
             if (pathname === "/") {
                 return "/";
             }
 
-            // Si estamos en /blog o /blog/all, activar blog
             if (pathname.startsWith("/blog")) {
                 return "blog";
             }
 
-            // Si estamos en /projects, activar projects
             if (pathname.startsWith("/projects")) {
                 return "projects";
             }
 
-            // Si estamos en /experience, activar experience
             if (pathname.startsWith("/experience")) {
                 return "experience";
             }
 
-            // Si estamos en /setup, activar setup
             if (pathname.startsWith("/setup")) {
                 return "setup";
             }

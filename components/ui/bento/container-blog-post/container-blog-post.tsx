@@ -2,13 +2,13 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { GlassCard } from "@/components/ui/cards/glass-card";
-import { BentoCard } from "@/components/ui/magicui/bento-grid";
-import { BorderBeam } from "@/components/ui/magicui/border-beam";
 import { Badge } from "@/components/ui/badge";
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Calendar, FileText, Star } from "feather-icons-react";
-import { StarIcon, StarsIcon } from "lucide-react";
+import { StarIcon, StarsIcon, ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 
 type BlogPostFrontmatter = {
     title?: string;
@@ -16,20 +16,8 @@ type BlogPostFrontmatter = {
     summary?: string;
     tags?: string[];
     content?: string;
-    // Puedes agregar más campos si los usas en el frontmatter
 };
 
-const lastpost = (content: BlogPostFrontmatter) => {
-    return {
-        Icon: Star,
-        name: "Personal Blog",
-        description: "My last post",
-        href: "#",
-        cta: "Learn more",
-        className: "",
-        background: <BuildFeaturedBlogPost {...content} />
-    };
-};
 
 function getLatestPost(): (BlogPostFrontmatter & { content: string }) | null {
     const postsDir = path.join(process.cwd(), "app/blog/posts");
@@ -94,7 +82,7 @@ export const ContainerBlogPost = () => {
     return (
         <div
             className={cn(
-                "mb-3 col-span-full min-h-64 h-full",
+                "mb-3 col-span-full min-h-64 h-ful",
                 "sm:mb-0 sm:col-start-4 sm:row-start-3",
                 "md:col-start-3 md:row-start-6 ",
                 "lg:col-start-4 lg:row-start-5 lg:col-span-2 lg:row-span-3",
@@ -102,33 +90,66 @@ export const ContainerBlogPost = () => {
             )}
             style={{ animationDelay: '0.7s' }}
         >
-            <GlassCard
+            <div
                 className={cn(
-                    "min-h-64 h-64 relative p-0 before:content-[''] before:w-full before:h-24 before:blur-2xl transition-transform hover:scale-[1.01] duration-300",
+                    "group col-span-3 relative flex flex-col justify-between overflow-hidden rounded-lg h-full",
+                    // light styles
+                    "bg-background border border-black/10",
+                    "[box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
+                    // dark styles
+                    "transform-gpu dark:bg-background dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+                    "min-h-64 h-64 relative p-0 before:content-[''] before:w-full before:h-24 before:blur-2xl transition-all duration-300 ease-in-out hover:scale-[1.01]",
                     "lg:p-0 lg:m-0 lg:justify-center lg:h-full lg:min-h-max lg:w-full",
                     "xl:p-0 gap-2"
                 )}
             >
-                <BentoCard
-                    name={"Personal Blog"}
-                    className={""}
-                    background={
-                        <BuildFeaturedBlogPost
-                            title={title}
-                            publishedAt={publishedAt}
-                            summary={summary}
-                            tags={tags}
-                            content={content}
-                        />
-                    }
-                    Icon={StarIcon}
-                    description={"My Last Post"}
-                    href={"/blog"}
-                    cta={"Learn more"}
-                    key={lastpost.name}
-                />
-                <BorderBeam duration={8} size={100} />
-            </GlassCard>
+                {/* Contenido del blog post */}
+                <div className="absolute inset-0 z-0 p-4">
+                    <BuildFeaturedBlogPost
+                        title={title}
+                        publishedAt={publishedAt}
+                        summary={summary}
+                        tags={tags}
+                        content={content}
+                    />
+                </div>
+
+                {/* Gradiente overlay */}
+                <div className="absolute bottom-0 w-full h-56 z-[1] bg-gradient-to-t from-[#011949] via-60%-[#011949] to-transparent"></div>
+
+                {/* Contenido del overlay */}
+                <div className="pointer-events-none z-10 flex transform-gpu flex-col absolute bottom-0 gap-1 p-4 transition-all duration-300 ease-in-out group-hover:-translate-y-10">
+                    <div className={cn(
+                        "flex gap-2 items-center ",
+                    )}>
+                        <StarIcon className="h-4 w-4 origin-left transform-gpu text-[#FBCA1D] transition-all duration-300 ease-in-out group-hover:scale-105" />
+                        <h3 className="text-xl font-semibold text-white dark:text-white group-hover:scale-[102%] transition-transform duration-300">
+                            Personal Blog
+                        </h3>
+                    </div>
+
+                    <p className="max-w-lg text-neutral-300">My Last Post</p>
+                </div>
+
+                <div
+                    className={cn(
+                        "pointer-events-none absolute bottom-0 z-10 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100"
+                    )}
+                >
+                    <Button
+                        variant="ghost"
+                        asChild
+                        size="sm"
+                        className="pointer-events-auto rounded-full bg-white/10 hover:bg-white/5 transition-all duration-300 ease-in-out"
+                    >
+                        <Link href="/blog" prefetch={true}>
+                            view more
+                            <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
+                        </Link>
+                    </Button>
+                </div>
+                <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 ease-in-out group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+            </div>
         </div>
     );
 };
@@ -144,12 +165,12 @@ export function BuildFeaturedBlogPost({
     const previewImages = extractImagesFromContent(content);
 
     return (
-        <GlassCard
+        <div
             className={cn(
-                "absolute bg-white/5 p-4 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group gap-2 hover:blur-2xl"
+                "w-full h-full flex flex-col gap-2"
             )}
         >
-            <CardHeader className="w-full flex-col items-start z-10 lg:gap-0 px-0 group-hover:opacity-20 transition-opacity duration-300">
+            <CardHeader className="w-full flex-col items-start z-10 lg:gap-0 px-0">
                 <section className="flex gap-1 items-center w-full lg:mt-2">
                     <Calendar className="w-3 h-3 text-white/70 flex-shrink-0" />
                     <span className="text-xs text-white/70 whitespace-nowrap overflow-hidden text-ellipsis">
@@ -172,7 +193,7 @@ export function BuildFeaturedBlogPost({
             </CardHeader>
 
             {/* Grid de 3 imágenes en formato cuadrado */}
-            <div className="grid grid-cols-3 gap-1 mt-2 mb-2 group-hover:opacity-20 transition-opacity duration-300">
+            <div className="grid grid-cols-3 gap-1 mt-2 mb-2">
                 {previewImages.map((image, index) => (
                     <div key={index} className="aspect-square w-full overflow-hidden rounded-md bg-white/10">
                         <img
@@ -185,11 +206,11 @@ export function BuildFeaturedBlogPost({
                 ))}
             </div>
 
-            <CardContent className="p-0 group-hover:opacity-20 transition-opacity duration-300">
+            <CardContent className="p-0">
                 <p className="text-sm sm:text-xs md:text-sm text-white/70 line-clamp-4 w-full overflow-hidden  lg:line-clamp-3 xl:line-clamp-4 2xl:line-clamp-5">
                     {summary}
                 </p>
             </CardContent>
-        </GlassCard>
+        </div>
     );
 }

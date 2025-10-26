@@ -68,20 +68,20 @@ export const PersonalExperienceCard: React.FC<PersonalExperienceCardProps> = ({
                     {tags.map((item, index) => (
                         <Badge
                             key={`${index} ${item}`}
-                            className="bg-white/20 rouded-lg hover:bg-blue-900 text-white px-2 py-1 font-medium cursor-pointer transition-all duration-300"
+                            className="bg-white/20 rouded-lg hover:bg-blue-900 text-white px-2 py-1 font-medium cursor-pointer transition-all duration-300 text-[10px] sm:text-xs"
                         >
                             {item}
                         </Badge>
                     ))}
                 </div>
 
-                <h3 className="text-sm text-white/80 mt-2 2xl:text-xl">
+                <h3 className="text-sm text-white/80 mt-2 2xl:text-lg">
                     {rol.title}
                 </h3>
-                <h4 className="text-sm text-white/60 2xl:text-md">
+                <h4 className="text-sm text-white/60 2xl:text-sm">
                     {rol.subtilte}
                 </h4>
-                <p className="text-sm mt-2 text-white/50 line-clamp-3">
+                <p className="text-xs mt-2 text-white/50 line-clamp-2">
                     {rol.description}
                 </p>
             </CardContent>

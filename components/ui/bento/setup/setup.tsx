@@ -14,7 +14,7 @@ const features = [
 		cta: null,
 		className: 'col-span-3 lg:col-span-2',
 		background: (
-			<AnimatedListShow className='absolute flex top-1 h-[300px] w-full scale-90 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-95' />
+			<AnimatedListShow className='absolute flex top-1 h-[300px] w-full scale-90 border-none ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]' />
 		)
 	}
 ];
@@ -23,8 +23,7 @@ export const Setup = () => {
 	return (
 		<div
 			className={cn(
-				'hidden lg:flex lg:col-start-6 lg:col-span-2 lg:row-span-2 animate-fade-in-bounce',
-				'animate-fade-in-bounce'
+				'hidden lg:flex lg:col-start-6 lg:col-span-2 lg:row-span-2',
 			)}
 			style={{ animationDelay: '0.4s' }}
 		>
