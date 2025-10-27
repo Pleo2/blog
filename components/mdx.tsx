@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
+import { ImageCollage, ImageCollageAlt, MediaCollage, SimpleImageGrid } from './ui/image-collage'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -97,6 +98,10 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
+  ImageCollage,
+  ImageCollageAlt,
+  MediaCollage,
+  SimpleImageGrid,
 }
 
 export function CustomMDX(props) {

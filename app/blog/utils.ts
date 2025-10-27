@@ -8,19 +8,21 @@ type Metadata = {
     summary: string;
     image?: string;
     tags?: string[];
+    autor?: string;
 };
 export type BlogPostFrontmatter = {
     title?: string;
     publishedAt?: string;
     summary?: string;
     tags?: string[];
+    autor?: string;
     content?: string;
 };
 
 function parseFrontmatter(fileContent: string): { metadata: Partial<Metadata>; content: string } {
     const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
     const match = frontmatterRegex.exec(fileContent);
-    if (!match) return {metadata: {}, content: fileContent};
+    if (!match) return { metadata: {}, content: fileContent };
     const frontMatterBlock = match[1];
     const content = fileContent.replace(frontmatterRegex, "").trim();
     const frontMatterLines = frontMatterBlock.trim().split("\n");
@@ -30,7 +32,8 @@ function parseFrontmatter(fileContent: string): { metadata: Partial<Metadata>; c
         const line = frontMatterLines[i];
         const [key, ...valueArr] = line.split(": ");
         let value = valueArr.join(": ").trim();
-        if (key.trim() === "tags") {
+
+        if (key.trim() === "tags" || key.trim() === "tags:") {
             // Soporta tags como array YAML
             if (value.startsWith("[")) {
                 metadata.tags = value
@@ -48,30 +51,29 @@ function parseFrontmatter(fileContent: string): { metadata: Partial<Metadata>; c
                 while (
                     j < frontMatterLines.length &&
                     frontMatterLines[j].trim().startsWith("-")
-                    ) {
+                ) {
                     tags.push(frontMatterLines[j].replace("-", "").trim());
                     j++;
                 }
                 metadata.tags = tags;
                 i = j - 1;
             }
-        } else {
+        } else if (key.trim() !== "") {
             value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-            if (key.trim() !== "") {
-                const k = key.trim() as keyof Metadata;
-                if (
-                    k === "title" ||
-                    k === "publishedAt" ||
-                    k === "summary" ||
-                    k === "image"
-                ) {
-                    metadata[k] = value;
-                }
+            const k = key.trim() as keyof Metadata;
+            if (
+                k === "title" ||
+                k === "publishedAt" ||
+                k === "summary" ||
+                k === "image" ||
+                k === "autor"
+            ) {
+                metadata[k] = value;
             }
         }
     }
 
-    return {metadata: metadata as Metadata, content};
+    return { metadata: metadata as Metadata, content };
 }
 
 function getMDXFiles(dir) {
@@ -86,7 +88,7 @@ function readMDXFile(filePath) {
 function getMDXData(dir) {
     const mdxFiles = getMDXFiles(dir);
     return mdxFiles.map((file) => {
-        const {metadata, content} = readMDXFile(path.join(dir, file));
+        const { metadata, content } = readMDXFile(path.join(dir, file));
         const slug = path.basename(file, path.extname(file));
 
         return {
@@ -152,7 +154,7 @@ export function getLatestPost(): (BlogPostFrontmatter & { content: string }) | n
     if (files.length === 0) return null;
     const latest = files[0];
     const source = fs.readFileSync(latest.fullPath, "utf8");
-    const {data, content} = matter(source);
+    const { data, content } = matter(source);
     return {
         ...data,
         content
@@ -200,7 +202,7 @@ export const blogPosts = getBlogPosts()
         title: post.metadata.title || "Sin título",
         summary: post.metadata.summary || "Sin resumen disponible",
         label: Array.isArray(post.metadata.tags) ? post.metadata.tags : [],
-        author: "Tu nombre", // Puedes personalizar esto
+        author: post.metadata.autor || 'Jose Moreno', // Usar autor del frontmatter o valor por defecto
         published: post.metadata.publishedAt ? formatDate(post.metadata.publishedAt) : "Sin fecha",
         url: `/blog/${post.slug}`,
         image: post.metadata.image || "/working.webp" // Imagen por defecto

@@ -16,7 +16,6 @@ interface Post {
 
 
 const BlogPages = ({ posts }: { posts: Post[] }) => {
-  console.log(posts);
   return (
     <section className="w-full h-max">
       <div className="container h-max w-full">
@@ -27,9 +26,12 @@ const BlogPages = ({ posts }: { posts: Post[] }) => {
                 key={post.id}
                 className="border-border border-b pb-6 last:border-b-0"
               >
+
                 <div className="flex flex-col gap-4 md:flex-row md:items-start">
                   <div className="md:w-2/3">
-                    <div className="mb-2 flex items-center gap-3">
+
+                    <div className="mb-2 flex flex-col items-start gap-3">
+
                       <h3 className="text-xl">
                         <Link
                           href={post.url}
@@ -38,7 +40,21 @@ const BlogPages = ({ posts }: { posts: Post[] }) => {
                           {post.title}
                         </Link>
                       </h3>
+
+                        <div className="flex flex-wrap gap-1 mb-2 justify-start">
+                            {post.label.map((tag, tagIndex) => (
+                                <Badge
+                                    key={tagIndex}
+                                    variant="secondary"
+                                    className="text-xs bg-blue-200/20"
+                                >
+                                    {tag}
+                                </Badge>
+                            ))}
+                        </div>
+
                     </div>
+
                     <p className="text-muted-foreground mb-3 text-sm">
                       {post.author} • {post.published}
                     </p>
@@ -48,17 +64,7 @@ const BlogPages = ({ posts }: { posts: Post[] }) => {
                   </div>
                   <div className="text-right md:w-1/3 md:text-right">
                     <p className="mb-1 text-sm font-medium">{post.published}</p>
-                    <div className="flex flex-wrap gap-1 mb-2 justify-end">
-                      {post.label.map((tag, tagIndex) => (
-                        <Badge
-                          key={tagIndex}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
+
                     <Link
                       href={post.url}
                       prefetch={true}

@@ -6,8 +6,7 @@ export const metadata = {
     description: "Read my blog."
 };
 
-export default function Page() {
-
+export default function  Page() {
     return (
         <div className="w-full h-max mt-12">
             <div className="w-full h-[70vh] ">
