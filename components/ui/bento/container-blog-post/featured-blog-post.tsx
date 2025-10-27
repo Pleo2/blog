@@ -1,20 +1,27 @@
-import {extractImagesFromContent, getLatestPost} from "@/app/blog/utils";
-import {cn} from "@/lib/utils";
-import {CardContent, CardHeader} from "@/components/ui/card";
-import {Calendar} from "feather-icons-react";
-import {Badge} from "@/components/ui/badge";
+import { extractImagesFromContent } from "@/lib/blog-client-utils";
+import { cn } from "@/lib/utils";
+import { CardContent, CardHeader } from "@/components/ui/card";
+import { Calendar } from "feather-icons-react";
+import { Badge } from "@/components/ui/badge";
 import type React from "react";
 
-export function FeaturedBlogPost() {
-    // Extraer imágenes del contenido del post
-    const post = getLatestPost();
-    if (!post) return null;
+interface FeaturedBlogPostProps {
+    post: {
+        title: string;
+        publishedAt: string;
+        summary: string;
+        tags: string[];
+        content: string;
+    };
+}
+
+export function FeaturedBlogPost({ post }: FeaturedBlogPostProps) {
     const publishedAt =
-        typeof post.publishedAt ===   "string" ? post.publishedAt : "";
-    const postTitle = typeof post.title ===   "string" ? post.title : "Untitled";
-    const postSumary = typeof post.summary ===   "string" ? post.summary : "";
+        typeof post.publishedAt === "string" ? post.publishedAt : "";
+    const postTitle = typeof post.title === "string" ? post.title : "Untitled";
+    const postSumary = typeof post.summary === "string" ? post.summary : "";
     const postTags = Array.isArray(post.tags) ? post.tags : [];
-    const postContent = post.content ===   "string" ? post.content : "";
+    const postContent = typeof post.content === "string" ? post.content : "";
     const previewImages = extractImagesFromContent(postContent);
 
     return (
@@ -25,7 +32,7 @@ export function FeaturedBlogPost() {
         >
             <CardHeader className="w-full flex-col items-start z-10 lg:gap-0 px-0">
                 <section className="flex gap-1 items-center w-full lg:mt-2">
-                    <Calendar className="w-3 h-3 text-white/70 flex-shrink-0"/>
+                    <Calendar className="w-3 h-3 text-white/70 flex-shrink-0" />
                     <span className="text-xs text-white/70 whitespace-nowrap overflow-hidden text-ellipsis">
                         {publishedAt}
                     </span>

@@ -162,32 +162,80 @@ export function getLatestPost(): (BlogPostFrontmatter & { content: string }) | n
 }
 
 export function extractImagesFromContent(content: string): string[] {
-    // Buscar imágenes en el contenido del MDX
-    const imageRegex = /!\[.*?\]\((.*?)\)/g;
+    // Buscar imágenes en el contenido del MDX - formato markdown estándar
+    const markdownImageRegex = /!\[.*?\]\((.*?)\)/g;
     const images: string[] = [];
     let match;
 
-    while ((match = imageRegex.exec(content)) !== null) {
+    while ((match = markdownImageRegex.exec(content)) !== null) {
         if (match[1] && !match[1].startsWith('http')) {
             images.push(match[1]);
         }
     }
 
+    // Buscar imágenes en componentes JSX (ImageCollageAlt, MediaCollage, SimpleImageGrid)
+    // Filtrar solo imágenes, excluir videos
+    const jsxImageRegex = /src:\s*['"](https?:\/\/[^'"]+)['"]/g;
+    while ((match = jsxImageRegex.exec(content)) !== null) {
+        if (match[1] && !match[1].match(/\.(mp4|mov|avi|mkv)$/i)) {
+            images.push(match[1]);
+        }
+    }
+
+    // Buscar imágenes en atributos alt de componentes de imagen
+    const altImageRegex = /alt:\s*['"]([^'"]*?)['"]/g;
+    while ((match = altImageRegex.exec(content)) !== null) {
+        // No agregar duplicados
+        if (!images.some(img => img.includes(match[1]))) {
+            // Buscar la imagen correspondiente a este alt
+            const beforeAlt = content.substring(0, match.index);
+            const srcMatch = beforeAlt.match(/src:\s*['"](https?:\/\/[^'"]+)['"]/);
+            if (srcMatch && srcMatch[1] && !srcMatch[1].match(/\.(mp4|mov|avi|mkv)$/i)) {
+                images.push(srcMatch[1]);
+            }
+        }
+    }
+
     // Imágenes por defecto para la preview
-    const defaultImages = ["/working.webp", "/wallpaper.webp", "/working.webp"];
+    const defaultImages = ["/working.webp", "/wallpaper.webp", "/daka-logo.webp"];
 
     // Si no se encuentran imágenes en el contenido, usar imágenes por defecto
     if (images.length === 0) {
         return defaultImages;
     }
 
-    // Tomar las primeras 3 imágenes encontradas, rellenar con imágenes por defecto si es necesario
-    const result = images.slice(0, 3);
-    while (result.length < 3) {
+    // Eliminar duplicados y tomar hasta 8 imágenes
+    const uniqueImages = Array.from(new Set(images));
+    const result = uniqueImages.slice(0, 8);
+    
+    // Rellenar con imágenes por defecto si es necesario
+    while (result.length < 4) {
         result.push(defaultImages[result.length % defaultImages.length]);
     }
 
     return result;
+}
+
+export function getFirstImageFromContent(content: string): string {
+    // Buscar la primera imagen en el contenido del MDX - formato markdown estándar
+    const markdownImageRegex = /!\[.*?\]\((.*?)\)/;
+    const markdownMatch = markdownImageRegex.exec(content);
+    
+    if (markdownMatch && markdownMatch[1] && !markdownMatch[1].startsWith('http')) {
+        return markdownMatch[1];
+    }
+
+    // Buscar la primera imagen en componentes JSX (ImageCollageAlt, MediaCollage, SimpleImageGrid)
+    // Filtrar solo imágenes, excluir videos
+    const jsxImageRegex = /src:\s*['"](https?:\/\/[^'"]+)['"]/;
+    const jsxMatch = jsxImageRegex.exec(content);
+    
+    if (jsxMatch && jsxMatch[1] && !jsxMatch[1].match(/\.(mp4|mov|avi|mkv)$/i)) {
+        return jsxMatch[1];
+    }
+
+    // Si no se encuentra ninguna imagen, usar imagen por defecto
+    return "/working.webp";
 }
 
 export const blogPosts = getBlogPosts()
@@ -214,4 +262,8 @@ export const stackPosts = getBlogPosts()
         const bDate = b.metadata.publishedAt ? new Date(b.metadata.publishedAt) : new Date(0);
         return bDate.getTime() - aDate.getTime();
     })
-    .slice(0, 4); // Limitar a 4 posts para el stack
+    .slice(0, 1) // Solo el primer post (más reciente)
+    .map((post) => ({
+        ...post,
+        allImages: extractImagesFromContent(post.content)
+    }));

@@ -40,13 +40,15 @@ interface BlogCardProps {
     className?: string;
     onPostClick?: (post: BlogPost) => void;
     onShare?: (post: BlogPost) => void;
+    isTransitioning?: boolean;
 }
 
-const BlogCard = ({ post, index, totalCards, isExpanded }: {
+const BlogCard = ({ post, index, totalCards, isExpanded, isTransitioning = false }: {
     post: BlogPost;
     index: number;
     totalCards: number;
     isExpanded: boolean;
+    isTransitioning?: boolean;
 }) => {
     // Calculate center offset based on total cards
     const centerOffset = (totalCards - 1) * 5;
@@ -126,7 +128,7 @@ const BlogCard = ({ post, index, totalCards, isExpanded }: {
                     className={cn(
                         "overflow-hidden rounded-lg opacity-90",
                         index >= 1 ? "w-full h-full" : "w-full aspect-square",
-                        "bg-neutral-100 dark:bg-neutral-900",
+                        "bg-blue-950 rounded-2xl",
                         "transition-transform duration-300 ease-out",
                         "group-hover:scale-[1.02]",
                         "shadow-inner relative"
@@ -136,7 +138,10 @@ const BlogCard = ({ post, index, totalCards, isExpanded }: {
                         src={post.image}
                         alt={post.title}
                         fill
-                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        className={cn(
+                            "object-cover transition-all duration-700 ease-in-out hover:scale-105 rounded-2xl",
+                            isTransitioning && index === 0 ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                        )}
                         {...(index === 0 ? { priority: true } : { loading: "lazy" })}
                     />
                     {/* Overlay sutil para mejor legibilidad del texto */}
@@ -161,7 +166,7 @@ const BlogCard = ({ post, index, totalCards, isExpanded }: {
     );
 };
 
-const BlogCardStack = ({ posts, className }: BlogCardProps) => {
+const BlogCardStack = ({ posts, className, isTransitioning = false }: BlogCardProps) => {
     const [isExpanded, setIsExpanded] = useState(true); // Iniciar expandido por defecto
 
     const handleToggle = () => setIsExpanded(!isExpanded);
@@ -204,6 +209,7 @@ const BlogCardStack = ({ posts, className }: BlogCardProps) => {
                     index={index}
                     totalCards={posts.length}
                     isExpanded={isExpanded}
+                    isTransitioning={isTransitioning}
                 />
             ))}
         </button>
