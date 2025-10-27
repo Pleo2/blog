@@ -134,7 +134,6 @@ export const BestBlogPost = ({ posts }: BestBlogPostProps) => {
                 {/* Controles para cambiar imagen principal */}
                 {availableImages.length > 1 && (
                     <div className='flex items-center gap-4 mt-6'>
-                        <span className='text-white/60 text-sm'>Cambiar imagen principal:</span>
                         <div className='flex items-center gap-2'>
                             <button
                                 onClick={() => changeMainImage('prev')}
